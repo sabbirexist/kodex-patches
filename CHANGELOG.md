@@ -1,3 +1,9 @@
+## [1.1.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-10-16)
+
+### 🐛 Bug Fixes
+
+* **VLC:** flatten M3 neutral palette + audio-player grey for true AMOLED header ([c0b982f](https://github.com/sabbirexist/kodex-patches/commit/c0b982f5a311cb04bd36539aad710fe4a6b9e7bd))
+
 ## [1.1.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-10-16)
 
 ### ✨ New Features

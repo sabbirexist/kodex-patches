@@ -82,7 +82,7 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 ## 🩹 Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.0-dev.2](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
+> **[v1.1.0-dev.3](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
 <details open>
 <summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;10 patches</summary>
 <br>
@@ -94,7 +94,7 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [AMOLED black theme](#amoled-black-theme) | Repaints every dark surface — background, cards, dialogs, popups and the navigation bar — to true black. |  |
+| [AMOLED black theme](#amoled-black-theme) | Repaints every dark surface — background, cards, dialogs, popups, header and the navigation bar — to true black. |  |
 | [Disable audio time-stretch](#disable-audio-time-stretch) | Forces time-stretching off for artifact-free playback at 1x speed. |  |
 | [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |  |
 | [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |  |
