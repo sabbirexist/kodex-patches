@@ -17,9 +17,12 @@ import org.w3c.dom.Element
 private val AMOLED_COLORS = setOf(
     // VLC surfaces
     "dark_background", "grey900", "grey875", "grey850", "grey800", "mini_player_dark",
+    "onboarding_grey",
     // Material Components dark
     "design_dark_default_color_surface", "design_dark_default_color_background",
     "design_snackbar_background_color",
+    // Material dark background / floating surface (dialogs, windows)
+    "material_grey_850", "material_grey_800", "material_grey_900",
     // Material 3 dark surfaces (dialogs, sheets, popups, navbar)
     "m3_sys_color_dark_background",
     "m3_sys_color_dark_surface",
