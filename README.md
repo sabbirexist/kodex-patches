@@ -257,16 +257,22 @@ for the full API.
 
 ---
 
-## 🗺️ Roadmap
+## 🗺️ Roadmap — all shipped
 
-| Patch | App | Status |
-|-------|-----|--------|
-| AMOLED black theme | VLC | ✅ shipped |
-| Force ReplayGain (loudness normalisation) | VLC | 🧪 planned |
-| Force AAudio output | VLC | 🧪 planned |
-| Verbose libVLC logging | VLC | 🧪 planned |
-| Hide donation button | VLC | 🧪 planned |
-| Skip "What's New" dialog | VLC | 🧪 planned |
+All patches target **VLC for Android** (`org.videolan.vlc`), verified against 3.7.1:
+
+| Patch | What it does |
+|-------|--------------|
+| AMOLED black theme | True black across background, cards, dialogs, popups and the navigation bar |
+| Skip "What's New" dialog | Suppresses the changelog popup after updates |
+| Skip onboarding | Opens the app directly on first run |
+| Unlock experimental features | Enables every experimental feature flag |
+| Force audio passthrough | Bitstreams audio to an external DAC or receiver |
+| Force AAudio output | Low-latency AAudio, overriding the device preference |
+| Force ReplayGain | Track-mode loudness normalisation with peak protection |
+| Disable audio time-stretch | Artifact-free playback at 1x speed |
+| Raise network cache | 3 seconds of stream buffering to cut stalls |
+| Verbose libVLC logging | `-vvv` output for troubleshooting playback |
 
 Have a request? [Open a feature request](https://github.com/sabbirexist/kodex-patches/issues/new/choose).
 
