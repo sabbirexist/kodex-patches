@@ -12,14 +12,14 @@ real logic kept in extensions.
 
 <br>
 
-[![Release](https://img.shields.io/github/v/release/sabbirexist/kodex-patches?include_prereleases&sort=semver&style=for-the-badge&label=release&color=5eead4)](https://github.com/sabbirexist/kodex-patches/releases)
+[![Release](https://img.shields.io/github/v/release/sabbirexist/kodex-patches?include_prereleases&style=for-the-badge&label=release&color=5eead4)](https://github.com/sabbirexist/kodex-patches/releases)
 [![Release build](https://img.shields.io/github/actions/workflow/status/sabbirexist/kodex-patches/release.yml?style=for-the-badge&label=build)](https://github.com/sabbirexist/kodex-patches/actions/workflows/release.yml)
 [![License](https://img.shields.io/github/license/sabbirexist/kodex-patches?style=for-the-badge&color=60a5fa)](LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/sabbirexist/kodex-patches/dev?style=for-the-badge&color=a78bfa)](https://github.com/sabbirexist/kodex-patches/commits/dev)
+[![Last commit](https://img.shields.io/github/last-commit/sabbirexist/kodex-patches?style=for-the-badge&color=a78bfa)](https://github.com/sabbirexist/kodex-patches/commits)
 
 [![Stars](https://img.shields.io/github/stars/sabbirexist/kodex-patches?style=for-the-badge&color=f59e0b)](https://github.com/sabbirexist/kodex-patches/stargazers)
 [![Forks](https://img.shields.io/github/forks/sabbirexist/kodex-patches?style=for-the-badge&color=f59e0b)](https://github.com/sabbirexist/kodex-patches/forks)
-[![Issues](https://img.shields.io/github/issues/sabbirexist/kodex-patches?style=for-the-badge&color=ef4444)](https://github.com/sabbirexist/kodex-patches/issues)
+[![Issues](https://img.shields.io/github/issues/sabbirexist/kodex-patches?style=for-the-badge&label=issues&color=ef4444)](https://github.com/sabbirexist/kodex-patches/issues)
 [![Android](https://img.shields.io/badge/platform-android-3ddc84?style=for-the-badge&logo=android&logoColor=white)](#)
 
 <br>
