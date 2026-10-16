@@ -1,3 +1,9 @@
+## [1.1.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0-dev.1...v1.1.0-dev.2) (2026-10-16)
+
+### ✨ New Features
+
+* **VLC:** full patch set — AMOLED everywhere, skip dialogs/onboarding, unlock features, and audio/output/engine options ([cf52e4c](https://github.com/sabbirexist/kodex-patches/commit/cf52e4c3010f10fd03839cdb9bcc166b7b28660e))
+
 ## [1.1.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-10-16)
 
 ### ✨ New Features

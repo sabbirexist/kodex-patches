@@ -82,9 +82,9 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 ## 🩹 Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.1.0-dev.2](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
 <details open>
-<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;10 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -95,21 +95,15 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [AMOLED black theme](#amoled-black-theme) | Repaints every dark surface — background, cards, dialogs, popups and the navigation bar — to true black. |  |
-
-</details>
-
-<details open>
-<summary>📦 XYZ app&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 2.0.0 | 1.0.2 |
-| :---: | :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Example Patch](#example-patch) | Example patch to start with. |  |
+| [Disable audio time-stretch](#disable-audio-time-stretch) | Forces time-stretching off for artifact-free playback at 1x speed. |  |
+| [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |  |
+| [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |  |
+| [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |  |
+| [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |  |
+| [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |  |
+| [Skip onboarding](#skip-onboarding) | Skips the first-run onboarding and opens the app directly. |  |
+| [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |  |
+| [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |  |
 
 </details>
 
