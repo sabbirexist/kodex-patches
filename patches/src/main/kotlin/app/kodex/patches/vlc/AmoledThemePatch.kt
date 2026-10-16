@@ -2,57 +2,49 @@ package app.kodex.patches.vlc
 
 import app.kodex.patches.shared.Constants.COMPATIBILITY_VLC
 import app.morphe.patcher.patch.resourcePatch
-import org.w3c.dom.Element
 
 /**
- * Every dark surface VLC draws, repainted to true black (#000000).
+ * Every dark surface VLC can draw, repainted to true black (#000000).
  *
- * VLC's "black" theme is Material dark grey. The obvious colours (dark_background, grey900) sit in
- * `res/values/colors.xml`, but dialogs, bottom sheets, popups, the mini-player and the edge-to-edge
- * navigation bar resolve through the Material 3 dark surface tokens
- * (`m3_sys_color_dark_surface*` -> `m3_ref_palette_neutral*`) and the Material Components dark
- * surface (`design_dark_default_color_surface`). All of them are flattened here, so every surface —
- * background, cards, dialogs, popups and the navbar — is pure black.
+ * VLC's "black" theme is Material dark grey. The greys live in `res/values/colors.xml` across
+ * several token layers — VLC's own greys, Material Components dark, the Material dark
+ * background/floating surface, and the Material 3 neutral palette that `m3_sys_color_dark_*`
+ * references. All of them are flattened here by hex value, which covers the window background,
+ * cards, dialogs, bottom sheets, popups, the mini-player, the toolbar/header surface, and the
+ * edge-to-edge navigation bar.
+ *
+ * The `@android:color/system_*_dark` dynamic (Material You) tokens in values-v31/v34 are unused by
+ * VLC's Material 2 theme, so they are left alone.
  */
-private val AMOLED_COLORS = setOf(
-    // VLC surfaces
-    "dark_background", "grey900", "grey875", "grey850", "grey800", "mini_player_dark",
-    "onboarding_grey",
-    // Material Components dark
-    "design_dark_default_color_surface", "design_dark_default_color_background",
-    "design_snackbar_background_color",
-    // Material dark background / floating surface (dialogs, windows)
-    "material_grey_850", "material_grey_800", "material_grey_900",
-    // Material 3 dark surfaces (dialogs, sheets, popups, navbar)
-    "m3_sys_color_dark_background",
-    "m3_sys_color_dark_surface",
-    "m3_sys_color_dark_surface_bright",
-    "m3_sys_color_dark_surface_dim",
-    "m3_sys_color_dark_surface_variant",
-    "m3_sys_color_dark_surface_container",
-    "m3_sys_color_dark_surface_container_low",
-    "m3_sys_color_dark_surface_container_lowest",
-    "m3_sys_color_dark_surface_container_high",
-    "m3_sys_color_dark_surface_container_highest",
+private val DARK_HEX = listOf(
+    // VLC surfaces (6-digit)
+    "#131313", "#212121", "#2a2a2a", "#323232", "#424242", "#121212", "#011422",
+    // Material dark background / floating surface (8-digit)
+    "#ff303030", "#ff424242", "#ff212121",
+    // Material 3 neutral palette, dark half (8-digit)
+    "#ff0f0d13", "#ff141218", "#ff1d1b20", "#ff211f26", "#ff2b2930",
+    "#ff322f35", "#ff36343b", "#ff3b383e", "#ff48464c", "#ff605d64",
+    "#ff1d1a22", "#ff322f37", "#ff49454f", "#ff605d66",
 )
 
 @Suppress("unused")
 val amoledBlackThemePatch = resourcePatch(
     name = "AMOLED black theme",
-    description = "Repaints every dark surface — background, cards, dialogs, popups and the navigation bar — to true black.",
+    description = "Repaints every dark surface — background, cards, dialogs, popups, header and the navigation bar — to true black.",
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_VLC)
 
     execute {
-        document("res/values/colors.xml").use { doc ->
-            val colors = doc.getElementsByTagName("color")
-            for (i in 0 until colors.length) {
-                val el = colors.item(i) as? Element ?: continue
-                if (el.getAttribute("name") in AMOLED_COLORS) {
-                    el.textContent = "#000000"
-                }
-            }
+        val file = get("res/values/colors.xml")
+        var text = file.readText()
+
+        for (hex in DARK_HEX) {
+            text = text.replace(hex, "#000000")
         }
+        // Semi-transparent audio-player grey -> transparent black (keeps its alpha).
+        text = text.replace("#ee2a2a2a", "#ee000000")
+
+        file.writeText(text)
     }
 }
