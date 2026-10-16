@@ -83,4 +83,30 @@ object Constants {
             )
         )
     )
+
+    /**
+     * VLC for Android.
+     *
+     * 3.7.1 is the confirmed target: the AMOLED black theme patch was verified against the
+     * official 3.7.1 APK (dark_background #131313 -> #000000, grey900 #212121 -> #000000 in
+     * the compiled resource table).
+     *
+     * The `null` target carries the patch forward experimentally; because the resource names
+     * are stable across releases, newer VLC versions are expected to work too.
+     */
+    val COMPATIBILITY_VLC = Compatibility(
+        name = "VLC",
+        packageName = "org.videolan.vlc",
+        apkFileType = ApkFileType.APK,
+        appIconColor = 0xFF6600, // VLC orange
+        targets = listOf(
+            AppTarget(
+                version = null,
+                isExperimental = true
+            ),
+            AppTarget(
+                version = "3.7.1"
+            )
+        )
+    )
 }
