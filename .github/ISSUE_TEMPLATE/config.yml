@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Morphe Patcher documentation
+    url: https://github.com/MorpheApp/morphe-patcher/blob/main/docs/README.md
+    about: Fundamentals of Morphe Patcher and how to create patches.
+  - name: 💬 Morphe documentation
+    url: https://github.com/MorpheApp/morphe-documentation
+    about: Full Morphe documentation, including development setup.
