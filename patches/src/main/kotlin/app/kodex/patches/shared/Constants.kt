@@ -29,4 +29,22 @@ object Constants {
             )
         )
     )
+
+    /**
+     * File Sharing - InShare (InShot Inc.).
+     *
+     * 2.1.3 is the confirmed target. InShare is R8-obfuscated, so the patch seams (`t2`, the
+     * premium/ad gate) are pinned to this exact version and must be re-derived on updates.
+     */
+    val COMPATIBILITY_INSHARE = Compatibility(
+        name = "InShare",
+        packageName = "sharefiles.sharemusic.shareapps.filetransfer",
+        apkFileType = ApkFileType.APK,
+        appIconColor = 0x1E88E5, // InShare blue
+        targets = listOf(
+            AppTarget(
+                version = "2.1.3"
+            )
+        )
+    )
 }
