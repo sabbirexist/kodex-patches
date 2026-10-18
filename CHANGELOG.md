@@ -1,3 +1,13 @@
+## [1.4.0](https://github.com/sabbirexist/kodex-patches/compare/v1.3.0...v1.4.0) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* **Eyecon:** fold premium-screen cleanups into Unlock premium, default Remove premium tab ([b1ace7c](https://github.com/sabbirexist/kodex-patches/commit/b1ace7c91ffc86516a71138c7b42d2c6e5a43f5f))
+
+### ✨ New Features
+
+* **Eyecon:** fix premium display, add AMOLED theme and premium-tab patches ([473f3aa](https://github.com/sabbirexist/kodex-patches/commit/473f3aa1e77af6d1a418ff5b3f41680b8c6b4439)), closes [#19232f](https://github.com/sabbirexist/kodex-patches/issues/19232f) [#060f1b](https://github.com/sabbirexist/kodex-patches/issues/060f1b) [#07111e](https://github.com/sabbirexist/kodex-patches/issues/07111e) [#062224](https://github.com/sabbirexist/kodex-patches/issues/062224) [#000104](https://github.com/sabbirexist/kodex-patches/issues/000104) [#343e53](https://github.com/sabbirexist/kodex-patches/issues/343e53) [#22323c](https://github.com/sabbirexist/kodex-patches/issues/22323c)
+
 ## [1.4.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0-dev.1...v1.4.0-dev.2) (2026-10-18)
 
 ### 🐛 Bug Fixes
