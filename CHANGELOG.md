@@ -1,3 +1,9 @@
+## [1.1.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0-dev.3...v1.1.0-dev.4) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* **VLC:** remove Skip onboarding patch (crashes app on fresh install) ([3997040](https://github.com/sabbirexist/kodex-patches/commit/39970405c09e594a734aed5d1fe996f69270dad3))
+
 ## [1.1.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0-dev.2...v1.1.0-dev.3) (2026-10-16)
 
 ### 🐛 Bug Fixes
