@@ -1,3 +1,9 @@
+## [1.2.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* **InShare:** remove all ads and the Remove Ads purchase icon ([ac12398](https://github.com/sabbirexist/kodex-patches/commit/ac12398bf3aedd88203ab99cd1341cced7762bf1))
+
 ## [1.2.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-10-18)
 
 ### ✨ New Features
