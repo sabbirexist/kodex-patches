@@ -1,3 +1,9 @@
+## [1.4.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0-dev.1...v1.4.0-dev.2) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* **Eyecon:** fold premium-screen cleanups into Unlock premium, default Remove premium tab ([b1ace7c](https://github.com/sabbirexist/kodex-patches/commit/b1ace7c91ffc86516a71138c7b42d2c6e5a43f5f))
+
 ## [1.4.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.3.0...v1.4.0-dev.1) (2026-10-18)
 
 ### ✨ New Features

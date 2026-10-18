@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.4.0-dev.1",
+  "version": "1.4.0-dev.2",
   "patches": [
     {
       "name": "AMOLED black theme",
@@ -246,32 +246,6 @@
       "options": []
     },
     {
-      "name": "Hide free-premium prompts",
-      "description": "Hides the \"Watch a video\" and \"Invite a friend\" earn-premium rows on the premium screen.",
-      "default": true,
-      "category": null,
-      "compatiblePackages": [
-        {
-          "packageName": "com.eyecon.global",
-          "name": "Eyecon",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#00A884",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "4.2026.09.16.1233",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
       "name": "Raise network cache",
       "description": "Buffers 3 seconds of stream ahead to reduce stalls on flaky networks.",
       "default": false,
@@ -333,7 +307,7 @@
     {
       "name": "Remove premium tab",
       "description": "Hides the premium tab from the home bottom bar.",
-      "default": false,
+      "default": true,
       "category": null,
       "compatiblePackages": [
         {

@@ -29,9 +29,9 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.4.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.4.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;16 patches total
+> **[v1.4.0-dev.2](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.4.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;15 patches total
 <details>
-<summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;6 patches</summary>
+<summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -44,7 +44,6 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [AMOLED black theme](#amoled-black-theme) | Repaints the dark theme's background, cards, bars and dialogs to true black for AMOLED screens. |  |
 | [Block contact upload](#block-contact-upload) | Stops Eyecon from uploading your contacts to its server for caller ID. |  |
 | [Block tracking & analytics](#block-tracking-analytics) | Disables Amplitude (including Session Replay screen recording), Singular attribution and Crashlytics crash reporting. |  |
-| [Hide free-premium prompts](#hide-free-premium-prompts) | Hides the "Watch a video" and "Invite a friend" earn-premium rows on the premium screen. |  |
 | [Remove premium tab](#remove-premium-tab) | Hides the premium tab from the home bottom bar. |  |
 | [Unlock premium](#unlock-premium) | Unlocks every premium feature client-side: removes ads, unlocks themes, premium caller ID and after-call screen, call recording, SMS extras, reverse lookup and ID Plus. |  |
 
