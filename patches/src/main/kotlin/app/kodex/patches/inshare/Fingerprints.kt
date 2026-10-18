@@ -16,3 +16,15 @@ object PremiumFlagFingerprint : Fingerprint(
     returnType = "Z",
     parameters = listOf(),
 )
+
+/**
+ * Second premium gate, separate from the ad-loading one. `cl2.a()` returns the `"JFOEJO"` flag;
+ * MainActivity hides the "Remove Ads" purchase icon and the "greatApp" cross-promo button when it
+ * is true. Forcing it true removes both.
+ */
+object RemoveAdsUiFingerprint : Fingerprint(
+    definingClass = "Lcl2;",
+    name = "a",
+    returnType = "Z",
+    parameters = listOf(),
+)

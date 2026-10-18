@@ -64,7 +64,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Remove ads](#remove-ads) | Unlocks the paid Remove Ads feature so no ads are shown. |  |
+| [Remove ads](#remove-ads) | Unlocks the paid Remove Ads feature: disables every ad and hides the Remove Ads purchase icon. |  |
 
 </details>
 

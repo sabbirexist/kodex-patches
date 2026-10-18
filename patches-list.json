@@ -202,7 +202,7 @@
     },
     {
       "name": "Remove ads",
-      "description": "Unlocks the paid Remove Ads feature so no ads are shown.",
+      "description": "Unlocks the paid Remove Ads feature: disables every ad and hides the Remove Ads purchase icon.",
       "default": true,
       "category": null,
       "compatiblePackages": [
