@@ -45,5 +45,17 @@ val unlockPremiumPatch = bytecodePatch(
                 return v0
             """,
         )
+
+        // FreePremiumUserActivity.K0() -> show "Lifetime" instead of "Valid until Jan 1, 1970".
+        FreePremiumValidUntilFingerprint.method.addInstructions(
+            0,
+            """
+                iget-object v0, p0, Lcom/eyecon/global/Billing/Premium/FreePremiumUserActivity;->X:Lcom/eyecon/global/databinding/ActivityFreePremiumUserV2Binding;
+                iget-object v0, v0, Lcom/eyecon/global/databinding/ActivityFreePremiumUserV2Binding;->n:Lcom/eyecon/global/Others/Views/CustomTextView;
+                const-string v1, "Lifetime"
+                invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+                return-void
+            """,
+        )
     }
 }

@@ -80,3 +80,27 @@ object ContactUploadFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("Ljava/lang/String;", "Z"),
 )
+
+/**
+ * `FreePremiumUserActivity.K0()` — renders the "Valid until <date>" line. With the premium flag
+ * forced true but the stored timestamp still 0, it prints "Valid until Jan 1, 1970"; we replace it
+ * with a fixed "Lifetime" label.
+ */
+object FreePremiumValidUntilFingerprint : Fingerprint(
+    definingClass = "Lcom/eyecon/global/Billing/Premium/FreePremiumUserActivity;",
+    name = "K0",
+    returnType = "V",
+    parameters = listOf(),
+)
+
+/**
+ * `MainActivity.S0()` — lays out the home bottom bar and shows the premium `EIB_premium` button
+ * when the keypad is placed above it. `EIB_premium` is `gone` in the layout by default, so a no-op
+ * here keeps the premium tab hidden (the "remove premium tab" patch).
+ */
+object PremiumTabSetupFingerprint : Fingerprint(
+    definingClass = "Lcom/eyecon/global/MainScreen/MainActivity;",
+    name = "S0",
+    returnType = "V",
+    parameters = listOf(),
+)
