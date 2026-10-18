@@ -13,7 +13,7 @@ import app.morphe.patcher.patch.bytecodePatch
 val removePremiumTabPatch = bytecodePatch(
     name = "Remove premium tab",
     description = "Hides the premium tab from the home bottom bar.",
-    default = false,
+    default = true,
 ) {
     compatibleWith(COMPATIBILITY_EYECON)
 

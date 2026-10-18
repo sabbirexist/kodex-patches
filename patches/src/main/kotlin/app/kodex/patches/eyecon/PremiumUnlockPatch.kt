@@ -46,7 +46,9 @@ val unlockPremiumPatch = bytecodePatch(
             """,
         )
 
-        // FreePremiumUserActivity.K0() -> show "Lifetime" instead of "Valid until Jan 1, 1970".
+        // FreePremiumUserActivity.K0() -> show "Lifetime" instead of "Valid until Jan 1, 1970",
+        // and hide the "Watch a video", "Invite a friend" and "More Buying Options" rows
+        // (which would play ads or open the store).
         FreePremiumValidUntilFingerprint.method.addInstructions(
             0,
             """
@@ -54,6 +56,19 @@ val unlockPremiumPatch = bytecodePatch(
                 iget-object v0, v0, Lcom/eyecon/global/databinding/ActivityFreePremiumUserV2Binding;->n:Lcom/eyecon/global/Others/Views/CustomTextView;
                 const-string v1, "Lifetime"
                 invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+                const v0, 0x7f0a01b6
+                invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+                move-result-object v0
+                const/16 v1, 0x8
+                invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+                const v0, 0x7f0a015c
+                invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+                move-result-object v0
+                invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+                const v0, 0x7f0a012b
+                invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+                move-result-object v0
+                invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
                 return-void
             """,
         )
