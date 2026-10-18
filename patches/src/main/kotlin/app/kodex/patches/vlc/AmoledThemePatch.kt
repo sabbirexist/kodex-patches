@@ -4,34 +4,47 @@ import app.kodex.patches.shared.Constants.COMPATIBILITY_VLC
 import app.morphe.patcher.patch.resourcePatch
 
 /**
- * VLC's "black" theme is dark grey, not AMOLED.
+ * Every dark surface VLC can draw, repainted to true black (#000000).
  *
- * In the decompiled APK the black theme resolves through `Theme.VLC.Apearance.Black`
- * (`values/styles.xml` + `values-night/styles.xml`), whose surfaces come from two
- * color resources in `res/values/colors.xml`:
+ * VLC's "black" theme is Material dark grey. The greys live in `res/values/colors.xml` across
+ * several token layers — VLC's own greys, Material Components dark, the Material dark
+ * background/floating surface, and the Material 3 neutral palette that `m3_sys_color_dark_*`
+ * references. All of them are flattened here by hex value, which covers the window background,
+ * cards, dialogs, bottom sheets, popups, the mini-player, the toolbar/header surface, and the
+ * edge-to-edge navigation bar.
  *
- *   <color name="dark_background">#131313</color>  -> android:windowBackground of the black theme
- *   <color name="grey900">#212121</color>          -> window / surface backgrounds
- *
- * Repainting both to #000000 turns the black theme into true AMOLED.
+ * The `@android:color/system_*_dark` dynamic (Material You) tokens in values-v31/v34 are unused by
+ * VLC's Material 2 theme, so they are left alone.
  */
+private val DARK_HEX = listOf(
+    // VLC surfaces (6-digit)
+    "#131313", "#212121", "#2a2a2a", "#323232", "#424242", "#121212", "#011422",
+    // Material dark background / floating surface (8-digit)
+    "#ff303030", "#ff424242", "#ff212121",
+    // Material 3 neutral palette, dark half (8-digit)
+    "#ff0f0d13", "#ff141218", "#ff1d1b20", "#ff211f26", "#ff2b2930",
+    "#ff322f35", "#ff36343b", "#ff3b383e", "#ff48464c", "#ff605d64",
+    "#ff1d1a22", "#ff322f37", "#ff49454f", "#ff605d66",
+)
+
 @Suppress("unused")
 val amoledBlackThemePatch = resourcePatch(
     name = "AMOLED black theme",
-    description = "Uses a true black (#000000) background for the black theme instead of dark grey.",
-    default = true
+    description = "Repaints every dark surface — background, cards, dialogs, popups, header and the navigation bar — to true black.",
+    default = true,
 ) {
     compatibleWith(COMPATIBILITY_VLC)
 
     execute {
-        val colorsFile = get("res/values/colors.xml")
-        val colors = colorsFile.readText()
-            // Black-theme window background (#131313) -> true black.
-            .replace("#131313", "#000000")
-            // Main dark surface / window background (#212121) -> true black.
-            // Safe: the transparent variants (#bb212121, #80212121, ...) do not contain "#212121".
-            .replace("#212121", "#000000")
+        val file = get("res/values/colors.xml")
+        var text = file.readText()
 
-        colorsFile.writeText(colors)
+        for (hex in DARK_HEX) {
+            text = text.replace(hex, "#000000")
+        }
+        // Semi-transparent audio-player grey -> transparent black (keeps its alpha).
+        text = text.replace("#ee2a2a2a", "#ee000000")
+
+        file.writeText(text)
     }
 }
