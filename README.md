@@ -28,9 +28,9 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 
 ## ⚙️ Patch Details
 
-<!-- PATCHES_START EXPANDED -->
-> **[v1.1.0](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;9 patches total
-<details open>
+<!-- PATCHES_START -->
+> **[v1.2.0-dev.3](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.2.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
+<details>
 <summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
 
@@ -50,6 +50,21 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |  |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |  |
 | [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |  |
+
+</details>
+
+<details>
+<summary>📦 InShare&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 2.1.3 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Remove ads](#remove-ads) | Unlocks the paid Remove Ads feature: disables every ad and hides the Remove Ads purchase icon. |  |
 
 </details>
 
