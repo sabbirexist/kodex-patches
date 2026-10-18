@@ -28,9 +28,9 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 
 ## ⚙️ Patch Details
 
-<!-- PATCHES_START EXPANDED -->
+<!-- PATCHES_START -->
 > **[v1.2.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.2.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
-<details open>
+<details>
 <summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
 
@@ -53,7 +53,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 
 </details>
 
-<details open>
+<details>
 <summary>📦 InShare&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
