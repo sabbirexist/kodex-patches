@@ -47,4 +47,24 @@ object Constants {
             )
         )
     )
+
+    /**
+     * Eyecon Caller ID & Dialer (Eyecon Global Ltd).
+     *
+     * 4.2026.09.16.1233 is the confirmed target. Eyecon keeps its class/package names readable
+     * (only fields are R8-obfuscated), so the premium/ad/analytics seams are matched by exact
+     * class + method name and are expected to survive minor version bumps; still pin to this
+     * version and re-derive on major updates.
+     */
+    val COMPATIBILITY_EYECON = Compatibility(
+        name = "Eyecon",
+        packageName = "com.eyecon.global",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x00A884, // Eyecon teal-green
+        targets = listOf(
+            AppTarget(
+                version = "4.2026.09.16.1233"
+            )
+        )
+    )
 }
