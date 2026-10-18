@@ -29,7 +29,26 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.3.0](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.3.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;13 patches total
+> **[v1.4.0-dev.2](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.4.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;15 patches total
+<details>
+<summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 4.2026.09.16.1233 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED black theme](#amoled-black-theme) | Repaints the dark theme's background, cards, bars and dialogs to true black for AMOLED screens. |  |
+| [Block contact upload](#block-contact-upload) | Stops Eyecon from uploading your contacts to its server for caller ID. |  |
+| [Block tracking & analytics](#block-tracking-analytics) | Disables Amplitude (including Session Replay screen recording), Singular attribution and Crashlytics crash reporting. |  |
+| [Remove premium tab](#remove-premium-tab) | Hides the premium tab from the home bottom bar. |  |
+| [Unlock premium](#unlock-premium) | Unlocks every premium feature client-side: removes ads, unlocks themes, premium caller ID and after-call screen, call recording, SMS extras, reverse lookup and ID Plus. |  |
+
+</details>
+
 <details>
 <summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
@@ -50,23 +69,6 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |  |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |  |
 | [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |  |
-
-</details>
-
-<details>
-<summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 4.2026.09.16.1233 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Block contact upload](#block-contact-upload) | Stops Eyecon from uploading your contacts to its server for caller ID. |  |
-| [Block tracking & analytics](#block-tracking-analytics) | Disables Amplitude (including Session Replay screen recording), Singular attribution and Crashlytics crash reporting. |  |
-| [Unlock premium](#unlock-premium) | Unlocks every premium feature client-side: removes ads, unlocks themes, premium caller ID and after-call screen, call recording, SMS extras, reverse lookup and ID Plus. |  |
 
 </details>
 
