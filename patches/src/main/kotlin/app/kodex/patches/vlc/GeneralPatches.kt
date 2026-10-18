@@ -20,16 +20,6 @@ val skipWhatsNewPatch = bytecodePatch(
 }
 
 @Suppress("unused")
-val skipOnboardingPatch = bytecodePatch(
-    name = "Skip onboarding",
-    description = "Skips the first-run onboarding and opens the app directly.",
-    default = false,
-) {
-    compatibleWith(COMPATIBILITY_VLC)
-    execute { StartOnboardingFingerprint.method.addInstructions(0, "return-void") }
-}
-
-@Suppress("unused")
 val unlockFeatureFlagsPatch = bytecodePatch(
     name = "Unlock experimental features",
     description = "Enables every experimental feature flag regardless of its stored value.",

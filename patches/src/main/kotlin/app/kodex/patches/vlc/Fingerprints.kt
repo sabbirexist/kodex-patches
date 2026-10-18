@@ -17,13 +17,6 @@ object WhatsNewLaunchFingerprint : Fingerprint(
     parameters = listOf("Landroidx/appcompat/app/AppCompatActivity;"),
 )
 
-object StartOnboardingFingerprint : Fingerprint(
-    definingClass = "Lorg/videolan/vlc/gui/onboarding/OnboardingActivityKt;",
-    name = "startOnboarding",
-    returnType = "V",
-    parameters = listOf("Landroid/app/Activity;"),
-)
-
 object FeatureFlagEnabledFingerprint : Fingerprint(
     definingClass = "Lorg/videolan/vlc/util/FeatureFlagManager;",
     name = "isEnabled",

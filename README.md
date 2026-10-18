@@ -82,9 +82,9 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 ## 🩹 Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.0-dev.3](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
+> **[v1.1.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;9 patches total
 <details open>
-<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;10 patches</summary>
+<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -101,7 +101,6 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 | [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |  |
 | [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |  |
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |  |
-| [Skip onboarding](#skip-onboarding) | Skips the first-run onboarding and opens the app directly. |  |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |  |
 | [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |  |
 
@@ -259,7 +258,6 @@ All patches target **VLC for Android** (`org.videolan.vlc`), verified against 3.
 |-------|--------------|
 | AMOLED black theme | True black across background, cards, dialogs, popups and the navigation bar |
 | Skip "What's New" dialog | Suppresses the changelog popup after updates |
-| Skip onboarding | Opens the app directly on first run |
 | Unlock experimental features | Enables every experimental feature flag |
 | Force audio passthrough | Bitstreams audio to an external DAC or receiver |
 | Force AAudio output | Low-latency AAudio, overriding the device preference |
