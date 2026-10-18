@@ -1,3 +1,14 @@
+## [1.2.0](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0...v1.2.0) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* **InShare:** remove all ads and the Remove Ads purchase icon ([ac12398](https://github.com/sabbirexist/kodex-patches/commit/ac12398bf3aedd88203ab99cd1341cced7762bf1))
+* **VLC:** disable Material elevation overlay for true black header ([d5baa24](https://github.com/sabbirexist/kodex-patches/commit/d5baa24e5fafda8b12accf783b27974badf9d8f6))
+
+### ✨ New Features
+
+* **InShare:** add Remove ads patch ([1645643](https://github.com/sabbirexist/kodex-patches/commit/16456430f4d7a6f5bd8abf89441ac640768c3dc5))
+
 ## [1.2.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.2.0-dev.2...v1.2.0-dev.3) (2026-10-18)
 
 ### 🐛 Bug Fixes
