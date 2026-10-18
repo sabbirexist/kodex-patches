@@ -1,3 +1,9 @@
+## [1.2.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.2.0-dev.2...v1.2.0-dev.3) (2026-10-18)
+
+### 🐛 Bug Fixes
+
+* **VLC:** disable Material elevation overlay for true black header ([d5baa24](https://github.com/sabbirexist/kodex-patches/commit/d5baa24e5fafda8b12accf783b27974badf9d8f6))
+
 ## [1.2.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.2.0-dev.1...v1.2.0-dev.2) (2026-10-18)
 
 ### 🐛 Bug Fixes
