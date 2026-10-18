@@ -1,3 +1,9 @@
+## [1.4.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.3.0...v1.4.0-dev.1) (2026-10-18)
+
+### ✨ New Features
+
+* **Eyecon:** fix premium display, add AMOLED theme and premium-tab patches ([473f3aa](https://github.com/sabbirexist/kodex-patches/commit/473f3aa1e77af6d1a418ff5b3f41680b8c6b4439)), closes [#19232f](https://github.com/sabbirexist/kodex-patches/issues/19232f) [#060f1b](https://github.com/sabbirexist/kodex-patches/issues/060f1b) [#07111e](https://github.com/sabbirexist/kodex-patches/issues/07111e) [#062224](https://github.com/sabbirexist/kodex-patches/issues/062224) [#000104](https://github.com/sabbirexist/kodex-patches/issues/000104) [#343e53](https://github.com/sabbirexist/kodex-patches/issues/343e53) [#22323c](https://github.com/sabbirexist/kodex-patches/issues/22323c)
+
 ## [1.3.0](https://github.com/sabbirexist/kodex-patches/compare/v1.2.0...v1.3.0) (2026-10-18)
 
 ### ✨ New Features
