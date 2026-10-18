@@ -1,3 +1,9 @@
+## [1.2.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0...v1.2.0-dev.1) (2026-10-18)
+
+### ✨ New Features
+
+* **InShare:** add Remove ads patch ([1645643](https://github.com/sabbirexist/kodex-patches/commit/16456430f4d7a6f5bd8abf89441ac640768c3dc5))
+
 ## [1.1.0](https://github.com/sabbirexist/kodex-patches/compare/v1.0.0...v1.1.0) (2026-10-18)
 
 ### 🐛 Bug Fixes

@@ -82,7 +82,7 @@ Built on [Morphe Patcher](https://github.com/MorpheApp/morphe-patcher) · [smali
 ## 🩹 Patches
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.0-dev.3](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.1.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
+> **[v1.2.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.2.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;10 patches total
 <details open>
 <summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
 <br>
