@@ -1,3 +1,9 @@
+## [1.2.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.2.0-dev.3...v1.2.0-dev.4) (2026-10-18)
+
+### ✨ New Features
+
+* **Eyecon:** unlock premium, block trackers and block contact upload ([1e5a9ef](https://github.com/sabbirexist/kodex-patches/commit/1e5a9efab34cea3748b41101a7c4a0ec2d6b60d8))
+
 ## [1.2.0](https://github.com/sabbirexist/kodex-patches/compare/v1.1.0...v1.2.0) (2026-10-18)
 
 ### 🐛 Bug Fixes

@@ -42,6 +42,43 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Fallback for the rare case where semantic-release creates the tag but dies on a
+      # non-critical step (e.g. the refs/notes push getting transiently rejected by GitHub),
+      # leaving a tag with no GitHub release. Only runs on failure, is idempotent, and never
+      # fails the job on its own.
+      - name: Recover release if tag exists without release
+        if: failure()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          VERSION=$(sed -nE 's/^[[:space:]]*version[[:space:]]*=[[:space:]]*//p' gradle.properties)
+          TAG="v${VERSION}"
+          if [ -z "$VERSION" ]; then
+            echo "No version in gradle.properties — nothing to recover."
+            exit 0
+          fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists — nothing to recover."
+            exit 0
+          fi
+          if ! git rev-parse --verify "refs/tags/$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG not found — nothing to recover."
+            exit 0
+          fi
+          echo "Tag $TAG exists without a release — recovering it."
+          ./gradlew :patches:buildAndroid --no-daemon --console=plain >/dev/null 2>&1 || {
+            echo "Build failed during recovery — leaving release unrecovered."
+            exit 0
+          }
+          MPP="patches/build/libs/patches-${VERSION}.mpp"
+          if [ ! -f "$MPP" ]; then
+            echo "Built .mpp not found — leaving release unrecovered."
+            exit 0
+          fi
+          gh release create "$TAG" --title "$TAG" --notes "Kodex Patches $TAG" "$MPP"
+          echo "Recovered release $TAG."
+
       - name: Attest
         if: steps.release.outputs.new_release_published == 'true'
         uses: actions/attest-build-provenance@v4
