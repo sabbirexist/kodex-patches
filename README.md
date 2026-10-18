@@ -3,7 +3,7 @@
 <img src="https://socialify.git.ci/sabbirexist/kodex-patches/image?forks=1&language=1&name=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Auto" alt="Kodex Patches" width="640" height="320" />
 
 <h1>
-    Morphe patches for VLC for Android
+    Morphe Patches by Kodex
 </h1>
 
 </div>
@@ -16,15 +16,14 @@ Tap the link to add Kodex Patches as a patch source in Morphe Manager:
 
 [**➕ Add Kodex Patches to Morphe**](https://morphe.software/add-source?github=sabbirexist/kodex-patches)
 
-Then patch VLC:
-1. Tap the VLC app icon in Morphe
-2. Download the original APK matching the supported version listed below
-3. Wait for patching to complete, install
+Then pick an app, download the matching APK version listed in Patch Details below, and patch.
+
+Enable **pre-release** on the source to pull `dev` builds (`v…-dev.N`).
 
 ### Morphe CLI
 
 ```sh
-java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex-patches -o VLC-Morphe.apk VLC.apk
+java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex-patches -o patched.apk app.apk
 ```
 
 ## ⚙️ Patch Details
@@ -67,7 +66,7 @@ See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation
 ## ✨ Stargazers over time
 
 <p align="center">
-    <img src="https://starchart.cc/sabbirexist/kodex-patches.svg?variant=light" alt="Kodex Patches" width="640" height="320" />
+    <img src="https://api.star-history.com/svg?repos=sabbirexist/kodex-patches&type=Date" alt="Kodex Patches star history" width="620" />
 </p>
 
 ## License
