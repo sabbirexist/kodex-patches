@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.5.0-dev.8",
+  "version": "1.5.0-dev.9",
   "patches": [
     {
       "name": "AMOLED black theme",
@@ -566,8 +566,8 @@
     },
     {
       "name": "Unlock premium",
-      "description": "Unlocks all premium tools and features.",
-      "default": true,
+      "description": "Unlocks all premium tools and features. (May crash — premium is server-validated.)",
+      "default": false,
       "category": null,
       "compatiblePackages": [
         {

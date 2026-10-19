@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.8)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;20 patches total
+> **[v1.5.0-dev.9](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.9)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;20 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -101,7 +101,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 |----------|----------------|
 | [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending analytics to Firebase and AppsFlyer. |
 | [Remove rate-us popup](#remove-rate-us-popup) | Stops the app from showing the 'rate us' prompt. |
-| [Unlock premium](#unlock-premium) | Unlocks all premium tools and features. |
+| [Unlock premium](#unlock-premium) | Unlocks all premium tools and features. (May crash — premium is server-validated.) |
 
 </details>
 

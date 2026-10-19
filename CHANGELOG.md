@@ -1,3 +1,9 @@
+## [1.5.0-dev.9](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.8...v1.5.0-dev.9) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** disable unlock-premium by default (crashes editor) ([d3d2cd0](https://github.com/sabbirexist/kodex-patches/commit/d3d2cd0e5a3ee691a4aba02935038bef33988f8c))
+
 ## [1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.7...v1.5.0-dev.8) (2026-10-19)
 
 ### 🐛 Bug Fixes
