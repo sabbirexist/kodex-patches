@@ -68,17 +68,6 @@ private fun generatePatchList(version: String, patches: Set<Patch<*>>) {
                     },
                 )
             },
-            options = patch.options.values.map { option ->
-                JsonPatch.Option(
-                    key = option.key,
-                    title = option.title,
-                    description = option.description,
-                    required = option.required,
-                    type = option.type.toString(),
-                    default = option.default,
-                    values = option.values,
-                )
-            }
         )
     }
 
@@ -111,18 +100,7 @@ private class JsonPatch(
     val category: String? = null,
     /** Null means the patch is universal and applies to any app. */
     val compatiblePackages: List<JsonCompatibility>? = null,
-    val options: List<Option>,
-) {
-    class Option(
-        val key: String,
-        val title: String?,
-        val description: String?,
-        val required: Boolean,
-        val type: String,
-        val default: Any?,
-        val values: Map<String, Any?>?,
-    )
-}
+)
 
 /** JSON representation of a compatible app entry, including name and per-version metadata. */
 @Suppress("unused")
