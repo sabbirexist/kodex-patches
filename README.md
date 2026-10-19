@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.7)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;17 patches total
+> **[v1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.8)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;20 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -85,6 +85,23 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 |----------|----------------|
 | [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending your data to Facebook. |
 | [Unlock premium](#unlock-premium) | Removes the ads from keyboard. |
+
+</details>
+
+<details>
+<summary>📦 TouchRetouch&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 5.3.2 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending analytics to Firebase and AppsFlyer. |
+| [Remove rate-us popup](#remove-rate-us-popup) | Stops the app from showing the 'rate us' prompt. |
+| [Unlock premium](#unlock-premium) | Unlocks all premium tools and features. |
 
 </details>
 

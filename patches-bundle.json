@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-19T21:25:51",
-  "description": "## [1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.6...v1.5.0-dev.7) (2026-10-19)\n\n### 🐛 Bug Fixes\n\n* **Bangla Keyboard:** premium screen shows subscribed UI ([34e2f21](https://github.com/sabbirexist/kodex-patches/commit/34e2f21713b9ab86a18e47c3767b7182ba768161))",
-  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.7/patches-1.5.0-dev.7.mpp",
+  "created_at": "2026-10-19T22:03:52",
+  "description": "## [1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.7...v1.5.0-dev.8) (2026-10-19)\n\n### 🐛 Bug Fixes\n\n* **TouchRetouch:** make all patches default-on ([dc60e76](https://github.com/sabbirexist/kodex-patches/commit/dc60e7643dc504647596bc9d0836eb336ba345c8))\n\n### ✨ New Features\n\n* **TouchRetouch:** unlock premium, block trackers, remove rate-us nag ([cfa2760](https://github.com/sabbirexist/kodex-patches/commit/cfa2760a65af514a7620fc5e0396109be82199c0))",
+  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.8/patches-1.5.0-dev.8.mpp",
   "signature_download_url": "",
-  "version": "1.5.0-dev.7"
+  "version": "1.5.0-dev.8"
 }

@@ -1,3 +1,13 @@
+## [1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.7...v1.5.0-dev.8) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** make all patches default-on ([dc60e76](https://github.com/sabbirexist/kodex-patches/commit/dc60e7643dc504647596bc9d0836eb336ba345c8))
+
+### ✨ New Features
+
+* **TouchRetouch:** unlock premium, block trackers, remove rate-us nag ([cfa2760](https://github.com/sabbirexist/kodex-patches/commit/cfa2760a65af514a7620fc5e0396109be82199c0))
+
 ## [1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.6...v1.5.0-dev.7) (2026-10-19)
 
 ### 🐛 Bug Fixes
