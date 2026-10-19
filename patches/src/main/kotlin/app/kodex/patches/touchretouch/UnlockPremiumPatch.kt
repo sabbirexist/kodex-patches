@@ -12,14 +12,16 @@ import app.morphe.patcher.patch.bytecodePatch
  * RetouchPlus makes every premium check pass, so the premium tools are unlocked (and, where the
  * watermark/ad gating keys off the same state, those are disabled too).
  *
- * The subscription itself is server-validated by RevenueCat, so this only flips the client-side
- * state — the same state the app itself uses for gating.
+ * NOTE: this is opt-in (default off) because forcing the premium state while RevenueCat still
+ * reports "no entitlement" crashes the app in the editor — the native engine keys its entitlement
+ * off the RevenueCat App User ID, not `g()`, so the two states diverge and the app crashes on the
+ * main screen. The crash could not be fixed without a device to debug.
  */
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock premium",
-    description = "Unlocks all premium tools and features.",
-    default = true,
+    description = "Unlocks all premium tools and features. (May crash — premium is server-validated.)",
+    default = false,
 ) {
     compatibleWith(COMPATIBILITY_TOUCHRETOUCH)
 
