@@ -86,4 +86,24 @@ object Constants {
             )
         )
     )
+
+    /**
+     * TouchRetouch (Retouch) — ADVA Soft photo editor for removing objects.
+     *
+     * 5.3.2 is the confirmed target. No PairIP/anti-tamper. The premium state is the `b2/e` enum
+     * (RetouchFree / RetouchCore / RetouchPlus) read through `TRApplication$b.g()`, backed by a
+     * RevenueCat subscription plus a legacy "installed from Play Store" one-time check. The analytics
+     * sink is `a2/d.c()` (Firebase). Obfuscated seams are pinned to this exact version.
+     */
+    val COMPATIBILITY_TOUCHRETOUCH = Compatibility(
+        name = "TouchRetouch",
+        packageName = "com.advasoft.touchretouch.plus",
+        apkFileType = ApkFileType.XAPK,
+        appIconColor = 0xFF6D00, // TouchRetouch orange
+        targets = listOf(
+            AppTarget(
+                version = "5.3.2"
+            )
+        )
+    )
 }
