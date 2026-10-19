@@ -1,3 +1,9 @@
+## [1.5.0-dev.6](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.5...v1.5.0-dev.6) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** unlock premium tab (subscribed UI) ([8540384](https://github.com/sabbirexist/kodex-patches/commit/85403846895fa35ab92e2e9061306d19080ccf1a))
+
 ## [1.5.0-dev.5](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2026-10-19)
 
 ### 🐛 Bug Fixes
