@@ -85,4 +85,22 @@ object Constants {
             )
         )
     )
+
+    /**
+     * Ridmik Keyboard — Bengali keyboard IME.
+     *
+     * 19.0.0 is the confirmed target. The keyboard is a standard IME (XML key layouts + theme
+     * colours), so the theme seam is resource-based and stable.
+     */
+    val COMPATIBILITY_RIDMIK = Compatibility(
+        name = "Ridmik Keyboard",
+        packageName = "ridmik.keyboard",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x18807A, // Ridmik green
+        targets = listOf(
+            AppTarget(
+                version = "19.0.0"
+            )
+        )
+    )
 }
