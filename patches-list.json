@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.5.0-dev.2",
+  "version": "1.5.0-dev.3",
   "patches": [
     {
       "name": "AMOLED black theme",
@@ -25,34 +25,7 @@
             }
           ]
         }
-      ],
-      "options": []
-    },
-    {
-      "name": "AMOLED black theme",
-      "description": "Makes the dark mode background, cards and dialogs true black for AMOLED screens.",
-      "default": true,
-      "category": null,
-      "compatiblePackages": [
-        {
-          "packageName": "com.tempmail",
-          "name": "Temp Mail",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#18CA88",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "4.12",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "AMOLED black theme",
@@ -81,11 +54,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Block contact upload",
@@ -110,8 +89,7 @@
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Block tracking & analytics",
@@ -136,34 +114,7 @@
             }
           ]
         }
-      ],
-      "options": []
-    },
-    {
-      "name": "Block tracking & analytics",
-      "description": "Stops the app from sending your data to tracking companies.",
-      "default": true,
-      "category": null,
-      "compatiblePackages": [
-        {
-          "packageName": "com.tempmail",
-          "name": "Temp Mail",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#18CA88",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "4.12",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Disable audio time-stretch",
@@ -192,11 +143,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Force AAudio output",
@@ -225,11 +182,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Force ReplayGain",
@@ -258,11 +221,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Force audio passthrough",
@@ -291,28 +260,9 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Gboard-style theme",
-      "description": "Restyles the keyboard to Gboard's white and dark palettes with rounded 8dp keys.",
-      "default": true,
-      "category": null,
-      "compatiblePackages": [
-        {
-          "packageName": "ridmik.keyboard",
-          "name": "Ridmik Keyboard",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#18807A",
-          "signatures": null,
-          "targets": [
+            },
             {
-              "version": "19.0.0",
+              "version": "3.7.2",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -320,8 +270,7 @@
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Raise network cache",
@@ -350,11 +299,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Remove ads",
@@ -379,8 +334,7 @@
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Remove premium tab",
@@ -405,8 +359,7 @@
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Skip \"What's New\" dialog",
@@ -435,11 +388,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Unlock experimental features",
@@ -468,11 +427,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Unlock premium",
@@ -497,34 +462,7 @@
             }
           ]
         }
-      ],
-      "options": []
-    },
-    {
-      "name": "Unlock premium",
-      "description": "Removes all ads and hides the \"Upgrade to Premium\" prompts.",
-      "default": true,
-      "category": null,
-      "compatiblePackages": [
-        {
-          "packageName": "com.tempmail",
-          "name": "Temp Mail",
-          "description": null,
-          "apkFileType": "APKM",
-          "appIconColor": "#18CA88",
-          "signatures": null,
-          "targets": [
-            {
-              "version": "4.12",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
+      ]
     },
     {
       "name": "Verbose libVLC logging",
@@ -553,11 +491,17 @@
               "isExperimental": false,
               "minSdk": null,
               "description": null
+            },
+            {
+              "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
             }
           ]
         }
-      ],
-      "options": []
+      ]
     }
   ]
 }

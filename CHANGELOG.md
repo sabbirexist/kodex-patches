@@ -1,3 +1,9 @@
+## [1.5.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.2...v1.5.0-dev.3) (2026-10-19)
+
+### 🚀 Updated App Support
+
+* **VLC:** add support for 3.7.2 ([b9ef645](https://github.com/sabbirexist/kodex-patches/commit/b9ef6457cdf736594fe22557d511f280da4560ad))
+
 ## [1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.1...v1.5.0-dev.2) (2026-10-19)
 
 ### 🐛 Bug Fixes

@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;19 patches total
+> **[v1.5.0-dev.3](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;15 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -39,30 +39,13 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | 4.2026.09.16.1233 |
 | :---: |
 
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED black theme](#amoled-black-theme) | Repaints the dark theme's background, cards, bars and dialogs to true black for AMOLED screens. |  |
-| [Block contact upload](#block-contact-upload) | Stops Eyecon from uploading your contacts to its server for caller ID. |  |
-| [Block tracking & analytics](#block-tracking-analytics) | Disables Amplitude (including Session Replay screen recording), Singular attribution and Crashlytics crash reporting. |  |
-| [Remove premium tab](#remove-premium-tab) | Hides the premium tab from the home bottom bar. |  |
-| [Unlock premium](#unlock-premium) | Unlocks every premium feature client-side: removes ads, unlocks themes, premium caller ID and after-call screen, call recording, SMS extras, reverse lookup and ID Plus. |  |
-
-</details>
-
-<details>
-<summary>📦 Temp Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 4.12 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED black theme](#amoled-black-theme) | Makes the dark mode background, cards and dialogs true black for AMOLED screens. |  |
-| [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending your data to tracking companies. |  |
-| [Unlock premium](#unlock-premium) | Removes all ads and hides the "Upgrade to Premium" prompts. |  |
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [AMOLED black theme](#amoled-black-theme) | Repaints the dark theme's background, cards, bars and dialogs to true black for AMOLED screens. |
+| [Block contact upload](#block-contact-upload) | Stops Eyecon from uploading your contacts to its server for caller ID. |
+| [Block tracking & analytics](#block-tracking-analytics) | Disables Amplitude (including Session Replay screen recording), Singular attribution and Crashlytics crash reporting. |
+| [Remove premium tab](#remove-premium-tab) | Hides the premium tab from the home bottom bar. |
+| [Unlock premium](#unlock-premium) | Unlocks every premium feature client-side: removes ads, unlocks themes, premium caller ID and after-call screen, call recording, SMS extras, reverse lookup and ID Plus. |
 
 </details>
 
@@ -72,35 +55,20 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 
 **🎯 Supported versions:**
 
-| 3.7.1 |
-| :---: |
+| 3.7.1 | 3.7.2 |
+| :---: | :---: |
 
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [AMOLED black theme](#amoled-black-theme) | Repaints every dark surface — background, cards, dialogs, popups, header and the navigation bar — to true black. |  |
-| [Disable audio time-stretch](#disable-audio-time-stretch) | Forces time-stretching off for artifact-free playback at 1x speed. |  |
-| [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |  |
-| [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |  |
-| [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |  |
-| [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |  |
-| [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |  |
-| [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |  |
-| [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |  |
-
-</details>
-
-<details>
-<summary>📦 Ridmik Keyboard&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 19.0.0 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Gboard-style theme](#gboard-style-theme) | Restyles the keyboard to Gboard's white and dark palettes with rounded 8dp keys. |  |
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [AMOLED black theme](#amoled-black-theme) | Repaints every dark surface — background, cards, dialogs, popups, header and the navigation bar — to true black. |
+| [Disable audio time-stretch](#disable-audio-time-stretch) | Forces time-stretching off for artifact-free playback at 1x speed. |
+| [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |
+| [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |
+| [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |
+| [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |
+| [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |
+| [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |
+| [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |
 
 </details>
 
@@ -113,9 +81,9 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | 2.1.3 |
 | :---: |
 
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Remove ads](#remove-ads) | Unlocks the paid Remove Ads feature: disables every ad and hides the Remove Ads purchase icon. |  |
+| 💊&nbsp;Patch | 📜&nbsp;Description |
+|----------|----------------|
+| [Remove ads](#remove-ads) | Unlocks the paid Remove Ads feature: disables every ad and hides the Remove Ads purchase icon. |
 
 </details>
 
