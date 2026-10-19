@@ -52,3 +52,15 @@ object FacebookInitFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("Landroid/content/Context;"),
 )
+
+/**
+ * `Lyh/b.b(Object)` — the `PremiumfeaturesActivity` listener that switches between the "Buy
+ * Premium" and the "subscribed" sections based on the premium flag. Forcing the incoming boolean to
+ * true makes the premium screen always render the subscribed UI.
+ */
+object PremiumScreenHandlerFingerprint : Fingerprint(
+    definingClass = "Lyh/b;",
+    name = "b",
+    returnType = "V",
+    parameters = listOf("Ljava/lang/Object;"),
+)

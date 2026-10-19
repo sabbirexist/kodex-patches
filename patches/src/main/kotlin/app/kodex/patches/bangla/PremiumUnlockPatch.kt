@@ -7,24 +7,23 @@ import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 
 /**
- * Unlocks premium end-to-end.
+ * Removes the promoted items (ads) and makes the premium screen render the subscribed UI.
  *
- * The app has two separate premium surfaces:
- *  1. `billing/e.a()` / `billing/e.b()` — the static "is premium" / "has subscription" booleans.
- *  2. `SubscriptionState.b()` — the subscription the premium tab reads directly from the StateFlow.
+ * The premium state is split across several seams that each feed a different surface:
+ *  1. `billing/e.a()` / `billing/e.b()` — the static "is premium" / "has subscription" booleans
+ *     (settings, writing assistant).
+ *  2. `SubscriptionState.b()` — the subscription read by the subscription tab.
+ *  3. `Lyh/b.b()` — the `PremiumfeaturesActivity` listener (the "Remove ads" screen) that toggles
+ *     between the "Buy Premium" and the "subscribed" sections.
  *
- * Patching only (1) left the premium tab showing "Buy Premium", because it renders the subscribed UI
- * based on (2) returning a non-null `Subscription`. So we force all three seams: `e.a()`, `e.b()`,
- * and `SubscriptionState.b()` (which now returns a synthetically-constructed, server-validated,
- * non-expiring subscription).
- *
- * Server-side features (AI writing generation, server-validated perks) still require a real
- * subscription — this unlocks the client-side UI and removes the promoted items (ads).
+ * The real premium perks (AI writing generation, server-validated features) still require a genuine
+ * subscription — this forces the client-side checks so the ads are gone and the premium screens show
+ * the subscribed state.
  */
 @Suppress("unused")
 val unlockPremiumPatch = bytecodePatch(
     name = "Unlock premium",
-    description = "Removes the ads and unlocks the premium screens.",
+    description = "Removes the ads from keyboard.",
     default = true,
 ) {
     compatibleWith(COMPATIBILITY_BANGLA)
@@ -48,7 +47,7 @@ val unlockPremiumPatch = bytecodePatch(
             """,
         )
 
-        // 3. Make the premium tab render the subscribed UI by returning a valid Subscription.
+        // 3. Make the subscription tab render the subscribed UI by returning a valid Subscription.
         val method = SubscriptionStateBFingerprint.method
         val impl = method.implementation!!
         // The method only declares 4 locals; the Subscription constructor needs 8 args + `this`.
@@ -76,5 +75,9 @@ val unlockPremiumPatch = bytecodePatch(
                 return-object v0
             """,
         )
+
+        // 4. Make the "Remove ads" premium screen render the subscribed UI: force the incoming
+        //    boolean to true right after `booleanValue()` (instruction index 3 → inject at 4).
+        PremiumScreenHandlerFingerprint.method.addInstructions(4, "const/4 p1, 0x1")
     }
 }
