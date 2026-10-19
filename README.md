@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://socialify.git.ci/sabbirexist/kodex-patches/image?forks=1&language=1&name=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Auto" alt="Kodex Patches" width="640" height="320" />
+<img src="https://socialify.git.ci/sabbirexist/kodex-patches/image?forks=1&language=1&name=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=dark" alt="Kodex Patches" width="640" height="320" />
 
 <h1>
     Morphe Patches by Kodex
