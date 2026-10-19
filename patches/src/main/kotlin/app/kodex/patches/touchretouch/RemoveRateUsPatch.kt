@@ -8,13 +8,13 @@ import app.morphe.patcher.patch.bytecodePatch
  * Removes the "rate us" popup.
  *
  * `r1/w1.k()` is the single method that builds and shows the custom rate-us dialog. Returning early
- * stops it being shown. Off by default since it is a minor cosmetic change.
+ * stops it being shown.
  */
 @Suppress("unused")
 val removeRateUsNagPatch = bytecodePatch(
     name = "Remove rate-us popup",
     description = "Stops the app from showing the 'rate us' prompt.",
-    default = false,
+    default = true,
 ) {
     compatibleWith(COMPATIBILITY_TOUCHRETOUCH)
 
