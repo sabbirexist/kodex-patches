@@ -67,4 +67,22 @@ object Constants {
             )
         )
     )
+
+    /**
+     * Temp Mail — Disposable Temporary Email (Privatix).
+     *
+     * 4.12 is the confirmed target. Class names are readable (methods are single-letter), so the
+     * premium/ad/analytics seams are matched by exact class + method name.
+     */
+    val COMPATIBILITY_TEMPMAIL = Compatibility(
+        name = "Temp Mail",
+        packageName = "com.tempmail",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x18CA88, // Temp Mail green
+        targets = listOf(
+            AppTarget(
+                version = "4.12"
+            )
+        )
+    )
 }
