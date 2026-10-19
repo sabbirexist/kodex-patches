@@ -8,11 +8,9 @@ object Constants {
     /**
      * VLC for Android.
      *
-     * 3.7.1 is the confirmed target: patches are verified against the official 3.7.1 APK.
-     *
-     * The `null` target carries patches forward experimentally; VLC is unobfuscated and its key
-     * seams (VLCOptions, WhatsNewManager, FeatureFlagManager, OnboardingActivityKt) are stable
-     * across releases, so newer versions are expected to work too.
+     * 3.7.2 is the latest confirmed target; 3.7.1 is kept for older installs. The `null` target
+     * carries patches forward experimentally; VLC is unobfuscated and its key seams (VLCOptions,
+     * WhatsNewManager, FeatureFlagManager) are stable across releases.
      */
     val COMPATIBILITY_VLC = Compatibility(
         name = "VLC",
@@ -26,6 +24,9 @@ object Constants {
             ),
             AppTarget(
                 version = "3.7.1"
+            ),
+            AppTarget(
+                version = "3.7.2"
             )
         )
     )
