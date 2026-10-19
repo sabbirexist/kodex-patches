@@ -68,4 +68,22 @@ object Constants {
             )
         )
     )
+
+    /**
+     * Bangla Keyboard (Desh Keyboard) — Bengali keyboard IME.
+     *
+     * 17.6.8 is the confirmed target. Readable package names, no anti-tamper, so the premium
+     * (billing/e) and analytics seams are matched by exact class + method name.
+     */
+    val COMPATIBILITY_BANGLA = Compatibility(
+        name = "Bangla Keyboard",
+        packageName = "com.bangla.keyboard.for.android",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x00897B, // Bangla Keyboard teal-green
+        targets = listOf(
+            AppTarget(
+                version = "17.6.8"
+            )
+        )
+    )
 }
