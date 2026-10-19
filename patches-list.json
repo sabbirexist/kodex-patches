@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.5.0-dev.3",
+  "version": "1.5.0-dev.4",
   "patches": [
     {
       "name": "AMOLED black theme",
@@ -82,6 +82,31 @@
           "targets": [
             {
               "version": "4.2026.09.16.1233",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Block tracking & analytics",
+      "description": "Stops the app from sending your data to Facebook.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.bangla.keyboard.for.android",
+          "name": "Bangla Keyboard",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#00897B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "17.6.8",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -430,6 +455,31 @@
             },
             {
               "version": "3.7.2",
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unlock premium",
+      "description": "Removes the ads and unlocks the premium screens.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "com.bangla.keyboard.for.android",
+          "name": "Bangla Keyboard",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#00897B",
+          "signatures": null,
+          "targets": [
+            {
+              "version": "17.6.8",
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,

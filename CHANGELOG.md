@@ -1,3 +1,9 @@
+## [1.5.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2026-10-19)
+
+### ✨ New Features
+
+* **Bangla Keyboard:** unlock premium and block tracking ([ba91b99](https://github.com/sabbirexist/kodex-patches/commit/ba91b99afd7d1c5f14a4c26ed5118fa5deab6b97))
+
 ## [1.5.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.2...v1.5.0-dev.3) (2026-10-19)
 
 ### 🚀 Updated App Support
