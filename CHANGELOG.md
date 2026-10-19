@@ -1,3 +1,9 @@
+## [1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.6...v1.5.0-dev.7) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** premium screen shows subscribed UI ([34e2f21](https://github.com/sabbirexist/kodex-patches/commit/34e2f21713b9ab86a18e47c3767b7182ba768161))
+
 ## [1.5.0-dev.6](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.5...v1.5.0-dev.6) (2026-10-19)
 
 ### 🐛 Bug Fixes

@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.6](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.6)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;17 patches total
+> **[v1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.7)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;17 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -84,7 +84,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | 💊&nbsp;Patch | 📜&nbsp;Description |
 |----------|----------------|
 | [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending your data to Facebook. |
-| [Unlock premium](#unlock-premium) | Removes the ads and unlocks the premium screens. |
+| [Unlock premium](#unlock-premium) | Removes the ads from keyboard. |
 
 </details>
 
