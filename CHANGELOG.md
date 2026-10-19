@@ -1,3 +1,9 @@
+## [1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.1...v1.5.0-dev.2) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Ridmik Keyboard:** target the default LXX theme, not just the blue theme ([5ffe98b](https://github.com/sabbirexist/kodex-patches/commit/5ffe98b54defc4a73a42f3776c71a9e7cb5de6c4))
+
 ## [1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0...v1.5.0-dev.1) (2026-10-19)
 
 ### ✨ New Features

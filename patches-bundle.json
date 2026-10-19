@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-19T17:18:02",
-  "description": "## [1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0...v1.5.0-dev.1) (2026-10-19)\n\n### ✨ New Features\n\n* **Ridmik Keyboard:** add Gboard-style theme ([10b02d9](https://github.com/sabbirexist/kodex-patches/commit/10b02d97ef0c921437a3f0a343056279b41104a3)), closes [#f1f3f4](https://github.com/sabbirexist/kodex-patches/issues/f1f3f4) [#d8dade](https://github.com/sabbirexist/kodex-patches/issues/d8dade) [#1f1f1f](https://github.com/sabbirexist/kodex-patches/issues/1f1f1f) [#2d2e30](https://github.com/sabbirexist/kodex-patches/issues/2d2e30)\n* **Temp Mail:** unlock premium, block trackers and add AMOLED black theme ([8de0cde](https://github.com/sabbirexist/kodex-patches/commit/8de0cde1768b6f85d7ae10bdef880808f3218244)), closes [#000000](https://github.com/sabbirexist/kodex-patches/issues/000000)",
-  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.1/patches-1.5.0-dev.1.mpp",
+  "created_at": "2026-10-19T17:35:17",
+  "description": "## [1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.1...v1.5.0-dev.2) (2026-10-19)\n\n### 🐛 Bug Fixes\n\n* **Ridmik Keyboard:** target the default LXX theme, not just the blue theme ([5ffe98b](https://github.com/sabbirexist/kodex-patches/commit/5ffe98b54defc4a73a42f3776c71a9e7cb5de6c4))",
+  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.2/patches-1.5.0-dev.2.mpp",
   "signature_download_url": "",
-  "version": "1.5.0-dev.1"
+  "version": "1.5.0-dev.2"
 }

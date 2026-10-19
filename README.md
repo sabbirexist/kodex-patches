@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;19 patches total
+> **[v1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;19 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
