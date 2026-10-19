@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.4.0](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.4.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;15 patches total
+> **[v1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;19 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -46,6 +46,23 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Block tracking & analytics](#block-tracking-analytics) | Disables Amplitude (including Session Replay screen recording), Singular attribution and Crashlytics crash reporting. |  |
 | [Remove premium tab](#remove-premium-tab) | Hides the premium tab from the home bottom bar. |  |
 | [Unlock premium](#unlock-premium) | Unlocks every premium feature client-side: removes ads, unlocks themes, premium caller ID and after-call screen, call recording, SMS extras, reverse lookup and ID Plus. |  |
+
+</details>
+
+<details>
+<summary>📦 Temp Mail&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 4.12 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [AMOLED black theme](#amoled-black-theme) | Makes the dark mode background, cards and dialogs true black for AMOLED screens. |  |
+| [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending your data to tracking companies. |  |
+| [Unlock premium](#unlock-premium) | Removes all ads and hides the "Upgrade to Premium" prompts. |  |
 
 </details>
 
@@ -69,6 +86,21 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |  |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |  |
 | [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |  |
+
+</details>
+
+<details>
+<summary>📦 Ridmik Keyboard&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**🎯 Supported versions:**
+
+| 19.0.0 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Gboard-style theme](#gboard-style-theme) | Restyles the keyboard to Gboard's white and dark palettes with rounded 8dp keys. |  |
 
 </details>
 

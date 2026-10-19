@@ -1,3 +1,10 @@
+## [1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0...v1.5.0-dev.1) (2026-10-19)
+
+### ✨ New Features
+
+* **Ridmik Keyboard:** add Gboard-style theme ([10b02d9](https://github.com/sabbirexist/kodex-patches/commit/10b02d97ef0c921437a3f0a343056279b41104a3)), closes [#f1f3f4](https://github.com/sabbirexist/kodex-patches/issues/f1f3f4) [#d8dade](https://github.com/sabbirexist/kodex-patches/issues/d8dade) [#1f1f1f](https://github.com/sabbirexist/kodex-patches/issues/1f1f1f) [#2d2e30](https://github.com/sabbirexist/kodex-patches/issues/2d2e30)
+* **Temp Mail:** unlock premium, block trackers and add AMOLED black theme ([8de0cde](https://github.com/sabbirexist/kodex-patches/commit/8de0cde1768b6f85d7ae10bdef880808f3218244)), closes [#000000](https://github.com/sabbirexist/kodex-patches/issues/000000)
+
 ## [1.4.0](https://github.com/sabbirexist/kodex-patches/compare/v1.3.0...v1.4.0) (2026-10-18)
 
 ### 🐛 Bug Fixes
