@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-10-19T20:29:23",
-  "description": "## [1.5.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2026-10-19)\n\n### ✨ New Features\n\n* **Bangla Keyboard:** unlock premium and block tracking ([ba91b99](https://github.com/sabbirexist/kodex-patches/commit/ba91b99afd7d1c5f14a4c26ed5118fa5deab6b97))",
-  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.4/patches-1.5.0-dev.4.mpp",
+  "created_at": "2026-10-19T20:34:50",
+  "description": "## [1.5.0-dev.5](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2026-10-19)\n\n### 🐛 Bug Fixes\n\n* **Bangla Keyboard:** rename to Desh Bangla Keyboard ([d7b12e0](https://github.com/sabbirexist/kodex-patches/commit/d7b12e0c88ad221c73cf1d02d6d037ac0d6b5db9))",
+  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.5/patches-1.5.0-dev.5.mpp",
   "signature_download_url": "",
-  "version": "1.5.0-dev.4"
+  "version": "1.5.0-dev.5"
 }

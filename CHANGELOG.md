@@ -1,3 +1,9 @@
+## [1.5.0-dev.5](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** rename to Desh Bangla Keyboard ([d7b12e0](https://github.com/sabbirexist/kodex-patches/commit/d7b12e0c88ad221c73cf1d02d6d037ac0d6b5db9))
+
 ## [1.5.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2026-10-19)
 
 ### ✨ New Features
