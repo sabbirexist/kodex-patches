@@ -8,11 +8,9 @@ object Constants {
     /**
      * VLC for Android.
      *
-     * 3.7.1 is the confirmed target: patches are verified against the official 3.7.1 APK.
-     *
-     * The `null` target carries patches forward experimentally; VLC is unobfuscated and its key
-     * seams (VLCOptions, WhatsNewManager, FeatureFlagManager, OnboardingActivityKt) are stable
-     * across releases, so newer versions are expected to work too.
+     * 3.7.2 is the latest confirmed target; 3.7.1 is kept for older installs. The `null` target
+     * carries patches forward experimentally; VLC is unobfuscated and its key seams (VLCOptions,
+     * WhatsNewManager, FeatureFlagManager) are stable across releases.
      */
     val COMPATIBILITY_VLC = Compatibility(
         name = "VLC",
@@ -26,6 +24,9 @@ object Constants {
             ),
             AppTarget(
                 version = "3.7.1"
+            ),
+            AppTarget(
+                version = "3.7.2"
             )
         )
     )
@@ -64,6 +65,65 @@ object Constants {
         targets = listOf(
             AppTarget(
                 version = "4.2026.09.16.1233"
+            )
+        )
+    )
+
+    /**
+     * Desh Bangla Keyboard — Bengali keyboard IME.
+     *
+     * 17.6.8 is the confirmed target. Readable package names, no anti-tamper, so the premium
+     * (billing/e) and analytics seams are matched by exact class + method name.
+     */
+    val COMPATIBILITY_BANGLA = Compatibility(
+        name = "Desh Bangla Keyboard",
+        packageName = "com.bangla.keyboard.for.android",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x00897B, // Bangla Keyboard teal-green
+        targets = listOf(
+            AppTarget(
+                version = "17.6.8"
+            )
+        )
+    )
+
+    /**
+     * TouchRetouch (Retouch) — ADVA Soft photo editor for removing objects.
+     *
+     * 5.3.2 is the confirmed target. No PairIP/anti-tamper. The premium state is the `b2/e` enum
+     * (RetouchFree / RetouchCore / RetouchPlus) read through `TRApplication$b.g()`, backed by a
+     * RevenueCat subscription plus a legacy "installed from Play Store" one-time check. The analytics
+     * sink is `a2/d.c()` (Firebase). Obfuscated seams are pinned to this exact version.
+     */
+    val COMPATIBILITY_TOUCHRETOUCH = Compatibility(
+        name = "TouchRetouch",
+        packageName = "com.advasoft.touchretouch.plus",
+        apkFileType = ApkFileType.XAPK,
+        appIconColor = 0xFF6D00, // TouchRetouch orange
+        targets = listOf(
+            AppTarget(
+                version = "5.3.2"
+            )
+        )
+    )
+
+    /**
+     * Heart Rate Monitor - Pulse App — Flutter health tracker (heart rate, blood pressure, blood
+     * sugar, AI doctor).
+     *
+     * 1.7.4 is the confirmed target. No PairIP/anti-tamper. The app's only in-app purchase is a
+     * single "remove ads" SKU; ads are Google AdMob (mediation adapters for Pangle/Facebook/etc.),
+     * and tracking is Adjust + Firebase. Obfuscated seams (`Tb/g`, `od/a`) are pinned to this
+     * version.
+     */
+    val COMPATIBILITY_HEARTRATE = Compatibility(
+        name = "Heart Rate Monitor",
+        packageName = "heartratemonitor.heartrate.pulse.pulseapp",
+        apkFileType = ApkFileType.XAPK,
+        appIconColor = 0xE53935, // heart-rate red
+        targets = listOf(
+            AppTarget(
+                version = "1.7.4"
             )
         )
     )
