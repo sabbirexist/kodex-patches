@@ -1,3 +1,13 @@
+## [1.5.0-dev.10](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.9...v1.5.0-dev.10) (2026-10-22)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** re-enable unlock-premium; crash was missing split APKs ([458733b](https://github.com/sabbirexist/kodex-patches/commit/458733b2a4382061c430440a0a3508d55c7a5db8))
+
+### ✨ New Features
+
+* **Heart Rate Monitor:** remove ads, block trackers ([d7caae6](https://github.com/sabbirexist/kodex-patches/commit/d7caae6349f87e84c318255c3319282da47f8721))
+
 ## [1.5.0-dev.9](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.8...v1.5.0-dev.9) (2026-10-19)
 
 ### 🐛 Bug Fixes
