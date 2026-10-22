@@ -106,4 +106,25 @@ object Constants {
             )
         )
     )
+
+    /**
+     * Heart Rate Monitor - Pulse App — Flutter health tracker (heart rate, blood pressure, blood
+     * sugar, AI doctor).
+     *
+     * 1.7.4 is the confirmed target. No PairIP/anti-tamper. The app's only in-app purchase is a
+     * single "remove ads" SKU; ads are Google AdMob (mediation adapters for Pangle/Facebook/etc.),
+     * and tracking is Adjust + Firebase. Obfuscated seams (`Tb/g`, `od/a`) are pinned to this
+     * version.
+     */
+    val COMPATIBILITY_HEARTRATE = Compatibility(
+        name = "Heart Rate Monitor",
+        packageName = "heartratemonitor.heartrate.pulse.pulseapp",
+        apkFileType = ApkFileType.XAPK,
+        appIconColor = 0xE53935, // heart-rate red
+        targets = listOf(
+            AppTarget(
+                version = "1.7.4"
+            )
+        )
+    )
 }
