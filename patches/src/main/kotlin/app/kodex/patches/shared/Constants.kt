@@ -86,45 +86,4 @@ object Constants {
             )
         )
     )
-
-    /**
-     * TouchRetouch (Retouch) — ADVA Soft photo editor for removing objects.
-     *
-     * 5.3.2 is the confirmed target. No PairIP/anti-tamper. The premium state is the `b2/e` enum
-     * (RetouchFree / RetouchCore / RetouchPlus) read through `TRApplication$b.g()`, backed by a
-     * RevenueCat subscription plus a legacy "installed from Play Store" one-time check. The analytics
-     * sink is `a2/d.c()` (Firebase). Obfuscated seams are pinned to this exact version.
-     */
-    val COMPATIBILITY_TOUCHRETOUCH = Compatibility(
-        name = "TouchRetouch",
-        packageName = "com.advasoft.touchretouch.plus",
-        apkFileType = ApkFileType.XAPK,
-        appIconColor = 0xFF6D00, // TouchRetouch orange
-        targets = listOf(
-            AppTarget(
-                version = "5.3.2"
-            )
-        )
-    )
-
-    /**
-     * Heart Rate Monitor - Pulse App — Flutter health tracker (heart rate, blood pressure, blood
-     * sugar, AI doctor).
-     *
-     * 1.7.4 is the confirmed target. No PairIP/anti-tamper. The app's only in-app purchase is a
-     * single "remove ads" SKU; ads are Google AdMob (mediation adapters for Pangle/Facebook/etc.),
-     * and tracking is Adjust + Firebase. Obfuscated seams (`Tb/g`, `od/a`) are pinned to this
-     * version.
-     */
-    val COMPATIBILITY_HEARTRATE = Compatibility(
-        name = "Heart Rate Monitor",
-        packageName = "heartratemonitor.heartrate.pulse.pulseapp",
-        apkFileType = ApkFileType.XAPK,
-        appIconColor = 0xE53935, // heart-rate red
-        targets = listOf(
-            AppTarget(
-                version = "1.7.4"
-            )
-        )
-    )
 }
