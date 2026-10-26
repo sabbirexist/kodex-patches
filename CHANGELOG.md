@@ -1,3 +1,72 @@
+## [1.5.0-dev.10](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.9...v1.5.0-dev.10) (2026-10-22)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** re-enable unlock-premium; crash was missing split APKs ([458733b](https://github.com/sabbirexist/kodex-patches/commit/458733b2a4382061c430440a0a3508d55c7a5db8))
+
+### ✨ New Features
+
+* **Heart Rate Monitor:** remove ads, block trackers ([d7caae6](https://github.com/sabbirexist/kodex-patches/commit/d7caae6349f87e84c318255c3319282da47f8721))
+
+## [1.5.0-dev.9](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.8...v1.5.0-dev.9) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** disable unlock-premium by default (crashes editor) ([d3d2cd0](https://github.com/sabbirexist/kodex-patches/commit/d3d2cd0e5a3ee691a4aba02935038bef33988f8c))
+
+## [1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.7...v1.5.0-dev.8) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** make all patches default-on ([dc60e76](https://github.com/sabbirexist/kodex-patches/commit/dc60e7643dc504647596bc9d0836eb336ba345c8))
+
+### ✨ New Features
+
+* **TouchRetouch:** unlock premium, block trackers, remove rate-us nag ([cfa2760](https://github.com/sabbirexist/kodex-patches/commit/cfa2760a65af514a7620fc5e0396109be82199c0))
+
+## [1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.6...v1.5.0-dev.7) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** premium screen shows subscribed UI ([34e2f21](https://github.com/sabbirexist/kodex-patches/commit/34e2f21713b9ab86a18e47c3767b7182ba768161))
+
+## [1.5.0-dev.6](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.5...v1.5.0-dev.6) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** unlock premium tab (subscribed UI) ([8540384](https://github.com/sabbirexist/kodex-patches/commit/85403846895fa35ab92e2e9061306d19080ccf1a))
+
+## [1.5.0-dev.5](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** rename to Desh Bangla Keyboard ([d7b12e0](https://github.com/sabbirexist/kodex-patches/commit/d7b12e0c88ad221c73cf1d02d6d037ac0d6b5db9))
+
+## [1.5.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2026-10-19)
+
+### ✨ New Features
+
+* **Bangla Keyboard:** unlock premium and block tracking ([ba91b99](https://github.com/sabbirexist/kodex-patches/commit/ba91b99afd7d1c5f14a4c26ed5118fa5deab6b97))
+
+## [1.5.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.2...v1.5.0-dev.3) (2026-10-19)
+
+### 🚀 Updated App Support
+
+* **VLC:** add support for 3.7.2 ([b9ef645](https://github.com/sabbirexist/kodex-patches/commit/b9ef6457cdf736594fe22557d511f280da4560ad))
+
+## [1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.1...v1.5.0-dev.2) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Ridmik Keyboard:** target the default LXX theme, not just the blue theme ([5ffe98b](https://github.com/sabbirexist/kodex-patches/commit/5ffe98b54defc4a73a42f3776c71a9e7cb5de6c4))
+
+## [1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0...v1.5.0-dev.1) (2026-10-19)
+
+### ✨ New Features
+
+* **Ridmik Keyboard:** add Gboard-style theme ([10b02d9](https://github.com/sabbirexist/kodex-patches/commit/10b02d97ef0c921437a3f0a343056279b41104a3)), closes [#f1f3f4](https://github.com/sabbirexist/kodex-patches/issues/f1f3f4) [#d8dade](https://github.com/sabbirexist/kodex-patches/issues/d8dade) [#1f1f1f](https://github.com/sabbirexist/kodex-patches/issues/1f1f1f) [#2d2e30](https://github.com/sabbirexist/kodex-patches/issues/2d2e30)
+* **Temp Mail:** unlock premium, block trackers and add AMOLED black theme ([8de0cde](https://github.com/sabbirexist/kodex-patches/commit/8de0cde1768b6f85d7ae10bdef880808f3218244)), closes [#000000](https://github.com/sabbirexist/kodex-patches/issues/000000)
+
 ## [1.4.0](https://github.com/sabbirexist/kodex-patches/compare/v1.3.0...v1.4.0) (2026-10-18)
 
 ### 🐛 Bug Fixes
