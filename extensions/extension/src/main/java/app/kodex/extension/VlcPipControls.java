@@ -68,9 +68,7 @@ public class VlcPipControls {
 
             // 1. Previous Video Action
             Intent prevIntent = new Intent(ACTION_REMOTE_BACKWARD, null, context, serviceClass);
-            PendingIntent piPrev = PendingIntent.getForegroundService(
-                context, 101, prevIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
-            );
+            PendingIntent piPrev = createPendingIntent(context, serviceObj, prevIntent, 101);
             int prevIconId = getDrawableId(context, "ic_notif_previous", android.R.drawable.ic_media_previous);
             RemoteAction prevAction = new RemoteAction(
                 Icon.createWithResource(context, prevIconId),
@@ -83,9 +81,7 @@ public class VlcPipControls {
 
             // 2. Play / Pause Action
             Intent playPauseIntent = new Intent(ACTION_REMOTE_PLAYPAUSE, null, context, serviceClass);
-            PendingIntent piPlayPause = PendingIntent.getForegroundService(
-                context, 102, playPauseIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
-            );
+            PendingIntent piPlayPause = createPendingIntent(context, serviceObj, playPauseIntent, 102);
             int playPauseIconId = isPlaying
                 ? getDrawableId(context, "ic_popup_pause", android.R.drawable.ic_media_pause)
                 : getDrawableId(context, "ic_popup_play", android.R.drawable.ic_media_play);
@@ -100,9 +96,7 @@ public class VlcPipControls {
 
             // 3. Next Video Action
             Intent nextIntent = new Intent(ACTION_REMOTE_FORWARD, null, context, serviceClass);
-            PendingIntent piNext = PendingIntent.getForegroundService(
-                context, 103, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
-            );
+            PendingIntent piNext = createPendingIntent(context, serviceObj, nextIntent, 103);
             int nextIconId = getDrawableId(context, "ic_notif_next", android.R.drawable.ic_media_next);
             RemoteAction nextAction = new RemoteAction(
                 Icon.createWithResource(context, nextIconId),
@@ -118,9 +112,32 @@ public class VlcPipControls {
         return actions;
     }
 
+    private static PendingIntent createPendingIntent(Context context, Object serviceObj, Intent intent, int requestCode) {
+        if (serviceObj != null) {
+            try {
+                Method m = serviceObj.getClass().getMethod("getPendingIntent", Intent.class);
+                Object res = m.invoke(serviceObj, intent);
+                if (res instanceof PendingIntent) {
+                    return (PendingIntent) res;
+                }
+            } catch (Throwable ignored) {}
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return PendingIntent.getForegroundService(
+                context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+            );
+        } else {
+            return PendingIntent.getService(
+                context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+            );
+        }
+    }
+
     private static int getDrawableId(Context ctx, String name, int fallback) {
         try {
             int id = ctx.getResources().getIdentifier(name, "drawable", ctx.getPackageName());
+            if (id != 0) return id;
+            id = ctx.getResources().getIdentifier(name, "drawable", "org.videolan.vlc");
             if (id != 0) return id;
         } catch (Throwable ignored) {}
         return fallback;
@@ -144,6 +161,9 @@ public class VlcPipControls {
             final ViewGroup group = (ViewGroup) rootView;
 
             int playPauseId = ctx.getResources().getIdentifier("video_play_pause", "id", ctx.getPackageName());
+            if (playPauseId == 0) {
+                playPauseId = ctx.getResources().getIdentifier("video_play_pause", "id", "org.videolan.vlc");
+            }
             View playPauseView = playPauseId != 0 ? group.findViewById(playPauseId) : null;
             if (playPauseView == null) return;
 

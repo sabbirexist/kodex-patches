@@ -2,7 +2,7 @@ package app.kodex.patches.vlc
 
 import app.kodex.patches.shared.Constants.COMPATIBILITY_VLC
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
 import app.morphe.patcher.patch.bytecodePatch
 
 private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcPipControls;"
@@ -36,8 +36,13 @@ val pipMediaControlsPatch = bytecodePatch(
 
     execute {
         // 1. Supply RemoteActions when entering PiP mode in switchToPopup()
+        // VLC hardcodes `paramBuilder.setActions(emptyList())`.
+        // We remove `emptyList()` and inject our actions list generator, whose return value
+        // is captured by the existing `move-result-object` for `setActions(List)`.
         val emptyListMatch = SwitchToPopupActionsFingerprint.instructionMatches[0]
-        SwitchToPopupActionsFingerprint.method.replaceInstruction(
+        val switchToPopupMethod = SwitchToPopupActionsFingerprint.method
+        switchToPopupMethod.removeInstruction(emptyListMatch.index)
+        switchToPopupMethod.addInstructions(
             emptyListMatch.index,
             """
                 iget-object v0, p0, Lorg/videolan/vlc/gui/video/VideoPlayerActivity;->service:Lorg/videolan/vlc/PlaybackService;
@@ -45,17 +50,22 @@ val pipMediaControlsPatch = bytecodePatch(
             """,
         )
 
-        // 2. Refresh PiP controls dynamically on playback events (playing, paused, track change)
+        // 2. Refresh PiP controls dynamically on playback events (playing, paused, track change).
+        // In onMediaPlayerEvent, p0 (this) is register 17 (> 15), so it cannot be encoded directly
+        // in 4-bit nibble instructions like iget-object or invoke-static.
+        // We use move-object/from16 (16-bit source register) to move p0 into low register v0 first.
         OnMediaPlayerEventFingerprint.method.addInstructions(
             0,
             """
-                iget-object v0, p0, Lorg/videolan/vlc/gui/video/VideoPlayerActivity;->service:Lorg/videolan/vlc/PlaybackService;
-                invoke-static {p0, v0}, $EXTENSION_CLASS->updatePipActions(Landroid/app/Activity;Ljava/lang/Object;)V
+                move-object/from16 v0, p0
+                iget-object v1, v0, Lorg/videolan/vlc/gui/video/VideoPlayerActivity;->service:Lorg/videolan/vlc/PlaybackService;
+                invoke-static {v0, v1}, $EXTENSION_CLASS->updatePipActions(Landroid/app/Activity;Ljava/lang/Object;)V
             """,
         )
 
         // 3. Bind popup buttons in PopupManager.showPopup()
-        val showPopupReturn = PopupManagerShowFingerprint.instructionMatches[0]
+        // Use the final return-void instruction at the end of showPopup() (avoiding early-return branches).
+        val showPopupReturn = PopupManagerShowFingerprint.instructionMatches.last()
         PopupManagerShowFingerprint.method.addInstructions(
             showPopupReturn.index,
             """
