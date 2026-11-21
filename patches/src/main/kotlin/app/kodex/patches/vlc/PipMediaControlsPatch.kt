@@ -17,8 +17,6 @@ private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcPipControls;"
  *    - Previous Video action (triggers `service.previous(false)`)
  *    - Play/Pause toggle action (triggers `service.play()` / `service.pause()`)
  *    - Next Video action (triggers `service.next()`)
- *    We also hook `onMediaPlayerEvent` so that when a video plays, pauses, or switches track,
- *    `updatePipActions` dynamically updates the OS PiP window.
  *
  * 2. Floating Popup mode:
  *    Hooks `PopupManager.showPopup()` and `PopupManager$handler$1.handleMessage()` to bind
@@ -50,20 +48,7 @@ val pipMediaControlsPatch = bytecodePatch(
             """,
         )
 
-        // 2. Refresh PiP controls dynamically on playback events (playing, paused, track change).
-        // In onMediaPlayerEvent, p0 (this) is register 17 (> 15), so it cannot be encoded directly
-        // in 4-bit nibble instructions like iget-object or invoke-static.
-        // We use move-object/from16 (16-bit source register) to move p0 into low register v0 first.
-        OnMediaPlayerEventFingerprint.method.addInstructions(
-            0,
-            """
-                move-object/from16 v0, p0
-                iget-object v1, v0, Lorg/videolan/vlc/gui/video/VideoPlayerActivity;->service:Lorg/videolan/vlc/PlaybackService;
-                invoke-static {v0, v1}, $EXTENSION_CLASS->updatePipActions(Landroid/app/Activity;Ljava/lang/Object;)V
-            """,
-        )
-
-        // 3. Bind popup buttons in PopupManager.showPopup()
+        // 2. Bind popup buttons in PopupManager.showPopup()
         // Use the final return-void instruction at the end of showPopup() (avoiding early-return branches).
         val showPopupReturn = PopupManagerShowFingerprint.instructionMatches.last()
         PopupManagerShowFingerprint.method.addInstructions(
@@ -75,7 +60,7 @@ val pipMediaControlsPatch = bytecodePatch(
             """,
         )
 
-        // 4. Synchronize button visibility in PopupManager$handler$1.handleMessage()
+        // 3. Synchronize button visibility in PopupManager$handler$1.handleMessage()
         PopupManagerHandlerFingerprint.method.addInstructions(
             0,
             """

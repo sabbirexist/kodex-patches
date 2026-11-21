@@ -72,18 +72,6 @@ object SwitchToPopupActionsFingerprint : Fingerprint(
 )
 
 /**
- * `VideoPlayerActivity.onMediaPlayerEvent(MediaPlayer.Event)` — triggered on playback state changes
- * (Playing, Paused, Stopped). We hook this to keep the PiP RemoteActions (Play/Pause icon and
- * Prev/Next availability) synchronized while playback continues in PiP.
- */
-object OnMediaPlayerEventFingerprint : Fingerprint(
-    definingClass = "Lorg/videolan/vlc/gui/video/VideoPlayerActivity;",
-    name = "onMediaPlayerEvent",
-    returnType = "V",
-    parameters = listOf("Lorg/videolan/libvlc/MediaPlayer\$Event;"),
-)
-
-/**
  * `PopupManager.showPopup()` — called when VLC's floating overlay window is displayed. We hook this
  * to bind onClick listeners for Previous and Next buttons to `service.previous(false)` and `service.next()`.
  */
