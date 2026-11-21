@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.10](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.10)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;22 patches total
+> **[v1.5.0-dev.11](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.11)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;18 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -50,7 +50,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 </details>
 
 <details>
-<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;9 patches</summary>
+<summary>📦 VLC&nbsp;&nbsp;•&nbsp;&nbsp;10 patches</summary>
 <br>
 
 **🎯 Supported versions:**
@@ -65,6 +65,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |
 | [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |
 | [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |
+| [PiP & Popup media controls](#pip-popup-media-controls) | Adds previous video, pause/resume, and next video buttons to Picture-in-Picture (PiP) and floating popup mode. |
 | [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |
@@ -85,39 +86,6 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 |----------|----------------|
 | [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending your data to Facebook. |
 | [Unlock premium](#unlock-premium) | Removes the ads from keyboard. |
-
-</details>
-
-<details>
-<summary>📦 Heart Rate Monitor&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 1.7.4 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending data to Firebase and Adjust. |
-| [Remove ads](#remove-ads) | Removes the full-screen interstitial ads. |
-
-</details>
-
-<details>
-<summary>📦 TouchRetouch&nbsp;&nbsp;•&nbsp;&nbsp;3 patches</summary>
-<br>
-
-**🎯 Supported versions:**
-
-| 5.3.2 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description |
-|----------|----------------|
-| [Block tracking & analytics](#block-tracking-analytics) | Stops the app from sending analytics to Firebase and AppsFlyer. |
-| [Remove rate-us popup](#remove-rate-us-popup) | Stops the app from showing the 'rate us' prompt. |
-| [Unlock premium](#unlock-premium) | Unlocks all premium tools and features. |
 
 </details>
 

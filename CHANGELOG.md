@@ -1,3 +1,9 @@
+## [1.5.0-dev.11](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.10...v1.5.0-dev.11) (2026-11-21)
+
+### ✨ New Features
+
+* **VLC:** add PiP and popup media controls patch ([84e3ebb](https://github.com/sabbirexist/kodex-patches/commit/84e3ebb03ba406b54d4ea194e7b5aeb523a98aa6))
+
 ## [1.5.0-dev.10](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.9...v1.5.0-dev.10) (2026-10-22)
 
 ### 🐛 Bug Fixes
