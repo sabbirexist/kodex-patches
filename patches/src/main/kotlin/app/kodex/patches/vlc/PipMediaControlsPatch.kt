@@ -2,8 +2,10 @@ package app.kodex.patches.vlc
 
 import app.kodex.patches.shared.Constants.COMPATIBILITY_VLC
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.getInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 
 private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcPipControls;"
 
@@ -21,6 +23,11 @@ private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcPipControls;"
  * 2. Floating Popup mode:
  *    Hooks `PopupManager.showPopup()` and `PopupManager$handler$1.handleMessage()` to bind
  *    click listeners and synchronize visibility for previous/next controls.
+ *
+ * 3. Queue full video folder / list:
+ *    Hooks `DefaultPlaybackActionMediaType.getCurrentPlaybackAction` to map `PLAY` to `PLAY_ALL`.
+ *    This ensures that when clicking a video in a folder (or library), all videos in that folder
+ *    (or view order) are queued in `PlaybackService`, allowing previous and next buttons to work.
  */
 @Suppress("unused")
 val pipMediaControlsPatch = bytecodePatch(
@@ -65,6 +72,22 @@ val pipMediaControlsPatch = bytecodePatch(
                 iget-object v0, v0, Lorg/videolan/vlc/gui/video/PopupManager;->rootView:Lorg/videolan/vlc/gui/view/PopupLayout;
                 iget v1, p1, Landroid/os/Message;->what:I
                 invoke-static {v0, v1}, $EXTENSION_CLASS->onPopupHandleMessage(Landroid/view/View;I)V
+            """,
+        )
+
+        // 4. Force default playback action to PLAY_ALL so videos in folders and libraries are queued
+        // VLC defaults video playback to PLAY (single video), which leaves PlaybackService with no
+        // previous or next videos in the playlist. Mapping PLAY -> PLAY_ALL ensures all videos in the
+        // current folder or current view order are loaded into the playlist starting at the clicked video.
+        val returnMatch = DefaultPlaybackActionFingerprint.instructionMatches.last()
+        val returnInstruction = DefaultPlaybackActionFingerprint.method.getInstruction<Instruction11x>(returnMatch.index)
+        val reg = returnInstruction.registerA
+        DefaultPlaybackActionFingerprint.method.addInstructions(
+            returnMatch.index,
+            """
+                invoke-static {v$reg}, $EXTENSION_CLASS->mapPlaybackAction(Ljava/lang/Object;)Ljava/lang/Object;
+                move-result-object v$reg
+                check-cast v$reg, Lorg/videolan/vlc/gui/helpers/DefaultPlaybackAction;
             """,
         )
     }

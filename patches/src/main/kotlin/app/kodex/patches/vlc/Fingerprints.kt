@@ -95,3 +95,19 @@ object PopupManagerHandlerFingerprint : Fingerprint(
     returnType = "V",
     parameters = listOf("Landroid/os/Message;"),
 )
+
+/**
+ * `DefaultPlaybackActionMediaType.getCurrentPlaybackAction(SharedPreferences)` — determines whether
+ * tapping a video plays only that single video (`PLAY`) or queues all videos from that folder / list (`PLAY_ALL`).
+ * We hook this to promote `PLAY` to `PLAY_ALL`, populating `PlaybackService`'s playlist with all tracks
+ * in the folder (or view order) so Previous and Next have targets to skip to.
+ */
+object DefaultPlaybackActionFingerprint : Fingerprint(
+    definingClass = "Lorg/videolan/vlc/gui/helpers/DefaultPlaybackActionMediaType;",
+    name = "getCurrentPlaybackAction",
+    returnType = "Lorg/videolan/vlc/gui/helpers/DefaultPlaybackAction;",
+    parameters = listOf("Landroid/content/SharedPreferences;"),
+    filters = listOf(
+        opcode(Opcode.RETURN_OBJECT),
+    ),
+)

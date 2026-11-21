@@ -222,8 +222,13 @@ public class VlcPipControls {
                 public void onClick(View v) {
                     try {
                         Method m = serviceObj.getClass().getMethod("previous", boolean.class);
-                        m.invoke(serviceObj, false);
-                    } catch (Throwable ignored) {}
+                        m.invoke(serviceObj, true);
+                    } catch (Throwable ignored) {
+                        try {
+                            Method m = serviceObj.getClass().getMethod("previous");
+                            m.invoke(serviceObj);
+                        } catch (Throwable ignored2) {}
+                    }
                 }
             });
 
@@ -237,9 +242,14 @@ public class VlcPipControls {
                 @Override
                 public void onClick(View v) {
                     try {
-                        Method m = serviceObj.getClass().getMethod("next");
-                        m.invoke(serviceObj);
-                    } catch (Throwable ignored) {}
+                        Method m = serviceObj.getClass().getMethod("next", boolean.class);
+                        m.invoke(serviceObj, true);
+                    } catch (Throwable ignored) {
+                        try {
+                            Method m = serviceObj.getClass().getMethod("next");
+                            m.invoke(serviceObj);
+                        } catch (Throwable ignored2) {}
+                    }
                 }
             });
 
@@ -283,5 +293,19 @@ public class VlcPipControls {
     public static void onPopupHandleMessage(View rootView, int msgWhat) {
         int visibility = (msgWhat == 0) ? View.VISIBLE : View.GONE;
         setPopupButtonsVisibility(rootView, visibility);
+    }
+
+    public static Object mapPlaybackAction(Object action) {
+        if (action != null && "PLAY".equals(((Enum<?>) action).name())) {
+            try {
+                Class<?> enumClass = action.getClass();
+                for (Object constant : enumClass.getEnumConstants()) {
+                    if ("PLAY_ALL".equals(((Enum<?>) constant).name())) {
+                        return constant;
+                    }
+                }
+            } catch (Throwable ignored) {}
+        }
+        return action;
     }
 }
