@@ -1,6 +1,7 @@
 package app.kodex.patches.vlc
 
 import app.morphe.patcher.Fingerprint
+import app.morphe.patcher.methodCall
 import app.morphe.patcher.opcode
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -50,4 +51,59 @@ object LibOptionsFingerprint : Fingerprint(
     filters = listOf(
         opcode(Opcode.RETURN_OBJECT)
     ),
+)
+
+/**
+ * `VideoPlayerActivity.switchToPopup()` — where PictureInPictureParams is built and passed to
+ * `enterPictureInPictureMode(params)`. VLC calls `paramBuilder.setActions(emptyList())`, which
+ * suppresses all controls. We locate the `emptyList` invocation to replace it with our actions list.
+ */
+object SwitchToPopupActionsFingerprint : Fingerprint(
+    definingClass = "Lorg/videolan/vlc/gui/video/VideoPlayerActivity;",
+    name = "switchToPopup",
+    returnType = "V",
+    parameters = listOf(),
+    filters = listOf(
+        methodCall(
+            definingClass = "Lkotlin/collections/CollectionsKt;",
+            name = "emptyList",
+        )
+    ),
+)
+
+/**
+ * `VideoPlayerActivity.onMediaPlayerEvent(MediaPlayer.Event)` — triggered on playback state changes
+ * (Playing, Paused, Stopped). We hook this to keep the PiP RemoteActions (Play/Pause icon and
+ * Prev/Next availability) synchronized while playback continues in PiP.
+ */
+object OnMediaPlayerEventFingerprint : Fingerprint(
+    definingClass = "Lorg/videolan/vlc/gui/video/VideoPlayerActivity;",
+    name = "onMediaPlayerEvent",
+    returnType = "V",
+    parameters = listOf("Lorg/videolan/libvlc/MediaPlayer\$Event;"),
+)
+
+/**
+ * `PopupManager.showPopup()` — called when VLC's floating overlay window is displayed. We hook this
+ * to bind onClick listeners for Previous and Next buttons to `service.previous(false)` and `service.next()`.
+ */
+object PopupManagerShowFingerprint : Fingerprint(
+    definingClass = "Lorg/videolan/vlc/gui/video/PopupManager;",
+    name = "showPopup",
+    returnType = "V",
+    parameters = listOf(),
+    filters = listOf(
+        opcode(Opcode.RETURN_VOID)
+    ),
+)
+
+/**
+ * `PopupManager$handler$1.handleMessage(Message)` — toggles the visibility of the popup controls.
+ * We hook this so Previous and Next buttons fade in and out in sync with the Play/Pause button.
+ */
+object PopupManagerHandlerFingerprint : Fingerprint(
+    definingClass = "Lorg/videolan/vlc/gui/video/PopupManager\$handler\$1;",
+    name = "handleMessage",
+    returnType = "V",
+    parameters = listOf("Landroid/os/Message;"),
 )
