@@ -1,3 +1,9 @@
+## [1.5.0-dev.12](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.11...v1.5.0-dev.12) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **VLC:** fix register overflow and instruction replacement in PiP patch ([dc49952](https://github.com/sabbirexist/kodex-patches/commit/dc49952f4cb71ffe38542e9822f3bc948e9bd30c))
+
 ## [1.5.0-dev.11](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.10...v1.5.0-dev.11) (2026-11-21)
 
 ### ✨ New Features
