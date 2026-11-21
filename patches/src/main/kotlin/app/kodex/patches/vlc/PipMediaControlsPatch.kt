@@ -2,7 +2,7 @@ package app.kodex.patches.vlc
 
 import app.kodex.patches.shared.Constants.COMPATIBILITY_VLC
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
-import app.morphe.patcher.extensions.InstructionExtensions.removeInstruction
+import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 
 private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcPipControls;"
@@ -13,7 +13,7 @@ private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcPipControls;"
  *
  * 1. Native Android PiP mode:
  *    VLC hardcodes `paramBuilder.setActions(emptyList())`, leaving the PiP window with zero controls.
- *    We replace `emptyList()` with `VlcPipControls.getPipActions(this, service)`, injecting:
+ *    We replace `emptyList()` with `VlcPipControls.getPipActions(this)`, injecting:
  *    - Previous Video action (triggers `service.previous(false)`)
  *    - Play/Pause toggle action (triggers `service.play()` / `service.pause()`)
  *    - Next Video action (triggers `service.next()`)
@@ -35,17 +35,14 @@ val pipMediaControlsPatch = bytecodePatch(
     execute {
         // 1. Supply RemoteActions when entering PiP mode in switchToPopup()
         // VLC hardcodes `paramBuilder.setActions(emptyList())`.
-        // We remove `emptyList()` and inject our actions list generator, whose return value
-        // is captured by the existing `move-result-object` for `setActions(List)`.
+        // We replace the single `invoke-static emptyList()` instruction in-place with our
+        // `invoke-static getPipActions(Context)`.
+        // In-place replacement ensures branch targets remain on the invoke instruction
+        // instead of merging into the subsequent move-result-object, avoiding ART VerifyError.
         val emptyListMatch = SwitchToPopupActionsFingerprint.instructionMatches[0]
-        val switchToPopupMethod = SwitchToPopupActionsFingerprint.method
-        switchToPopupMethod.removeInstruction(emptyListMatch.index)
-        switchToPopupMethod.addInstructions(
+        SwitchToPopupActionsFingerprint.method.replaceInstruction(
             emptyListMatch.index,
-            """
-                iget-object v0, p0, Lorg/videolan/vlc/gui/video/VideoPlayerActivity;->service:Lorg/videolan/vlc/PlaybackService;
-                invoke-static {p0, v0}, $EXTENSION_CLASS->getPipActions(Landroid/content/Context;Ljava/lang/Object;)Ljava/util/List;
-            """,
+            "invoke-static {p0}, $EXTENSION_CLASS->getPipActions(Landroid/content/Context;)Ljava/util/List;",
         )
 
         // 2. Bind popup buttons in PopupManager.showPopup()

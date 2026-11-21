@@ -12,6 +12,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,24 @@ public class VlcPipControls {
 
     private static final int POPUP_PREV_VIEW_ID = 0x7f099901;
     private static final int POPUP_NEXT_VIEW_ID = 0x7f099902;
+
+    @TargetApi(Build.VERSION_CODES.O)
+    public static List<RemoteAction> getPipActions(Context context) {
+        Object serviceObj = null;
+        if (context != null) {
+            try {
+                Method m = context.getClass().getMethod("getService");
+                serviceObj = m.invoke(context);
+            } catch (Throwable ignored) {
+                try {
+                    Field f = context.getClass().getDeclaredField("service");
+                    f.setAccessible(true);
+                    serviceObj = f.get(context);
+                } catch (Throwable ignored2) {}
+            }
+        }
+        return getPipActions(context, serviceObj);
+    }
 
     @TargetApi(Build.VERSION_CODES.O)
     public static List<RemoteAction> getPipActions(Context context, Object serviceObj) {
@@ -66,8 +85,13 @@ public class VlcPipControls {
                 } catch (Throwable ignored) {}
             }
 
+            String pkg = context.getPackageName();
+            String backwardAction = pkg != null ? pkg + ".remote.Backward" : ACTION_REMOTE_BACKWARD;
+            String playPauseAction = pkg != null ? pkg + ".remote.PlayPause" : ACTION_REMOTE_PLAYPAUSE;
+            String forwardAction = pkg != null ? pkg + ".remote.Forward" : ACTION_REMOTE_FORWARD;
+
             // 1. Previous Video Action
-            Intent prevIntent = new Intent(ACTION_REMOTE_BACKWARD, null, context, serviceClass);
+            Intent prevIntent = new Intent(backwardAction, null, context, serviceClass);
             PendingIntent piPrev = createPendingIntent(context, serviceObj, prevIntent, 101);
             int prevIconId = getDrawableId(context, "ic_notif_previous", android.R.drawable.ic_media_previous);
             RemoteAction prevAction = new RemoteAction(
@@ -80,7 +104,7 @@ public class VlcPipControls {
             actions.add(prevAction);
 
             // 2. Play / Pause Action
-            Intent playPauseIntent = new Intent(ACTION_REMOTE_PLAYPAUSE, null, context, serviceClass);
+            Intent playPauseIntent = new Intent(playPauseAction, null, context, serviceClass);
             PendingIntent piPlayPause = createPendingIntent(context, serviceObj, playPauseIntent, 102);
             int playPauseIconId = isPlaying
                 ? getDrawableId(context, "ic_popup_pause", android.R.drawable.ic_media_pause)
@@ -95,7 +119,7 @@ public class VlcPipControls {
             actions.add(playPauseAction);
 
             // 3. Next Video Action
-            Intent nextIntent = new Intent(ACTION_REMOTE_FORWARD, null, context, serviceClass);
+            Intent nextIntent = new Intent(forwardAction, null, context, serviceClass);
             PendingIntent piNext = createPendingIntent(context, serviceObj, nextIntent, 103);
             int nextIconId = getDrawableId(context, "ic_notif_next", android.R.drawable.ic_media_next);
             RemoteAction nextAction = new RemoteAction(
@@ -141,6 +165,17 @@ public class VlcPipControls {
             if (id != 0) return id;
         } catch (Throwable ignored) {}
         return fallback;
+    }
+
+    @TargetApi(Build.VERSION_CODES.O)
+    public static void updatePipActions(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && activity != null && activity.isInPictureInPictureMode()) {
+            try {
+                PictureInPictureParams.Builder builder = new PictureInPictureParams.Builder();
+                builder.setActions(getPipActions(activity));
+                activity.setPictureInPictureParams(builder.build());
+            } catch (Throwable ignored) {}
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.O)
