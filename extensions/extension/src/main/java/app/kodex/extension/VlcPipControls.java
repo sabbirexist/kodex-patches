@@ -87,7 +87,7 @@ public class VlcPipControls {
 
             String pkg = context.getPackageName();
             String backwardAction = pkg != null ? pkg + ".remote.Backward" : ACTION_REMOTE_BACKWARD;
-            String playPauseAction = pkg != null ? pkg + ".remote.PlayPause" : ACTION_REMOTE_PLAYPAUSE;
+            String playPauseActionStr = pkg != null ? pkg + ".remote.PlayPause" : ACTION_REMOTE_PLAYPAUSE;
             String forwardAction = pkg != null ? pkg + ".remote.Forward" : ACTION_REMOTE_FORWARD;
 
             // 1. Previous Video Action
@@ -104,7 +104,7 @@ public class VlcPipControls {
             actions.add(prevAction);
 
             // 2. Play / Pause Action
-            Intent playPauseIntent = new Intent(playPauseAction, null, context, serviceClass);
+            Intent playPauseIntent = new Intent(playPauseActionStr, null, context, serviceClass);
             PendingIntent piPlayPause = createPendingIntent(context, serviceObj, playPauseIntent, 102);
             int playPauseIconId = isPlaying
                 ? getDrawableId(context, "ic_popup_pause", android.R.drawable.ic_media_pause)
