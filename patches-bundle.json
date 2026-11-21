@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-21T21:30:11",
-  "description": "## [1.5.0-dev.12](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.11...v1.5.0-dev.12) (2026-11-21)\n\n### 🐛 Bug Fixes\n\n* **VLC:** fix register overflow and instruction replacement in PiP patch ([dc49952](https://github.com/sabbirexist/kodex-patches/commit/dc49952f4cb71ffe38542e9822f3bc948e9bd30c))",
-  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.12/patches-1.5.0-dev.12.mpp",
+  "created_at": "2026-11-21T21:45:19",
+  "description": "## [1.5.0-dev.13](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.12...v1.5.0-dev.13) (2026-11-21)\n\n### 🐛 Bug Fixes\n\n* **VLC:** remove onMediaPlayerEvent hook to avoid switch misalignment crash ([ee8ac60](https://github.com/sabbirexist/kodex-patches/commit/ee8ac609a5140231c0dac3a930682ed247558384))",
+  "download_url": "https://github.com/sabbirexist/kodex-patches/releases/download/v1.5.0-dev.13/patches-1.5.0-dev.13.mpp",
   "signature_download_url": "",
-  "version": "1.5.0-dev.12"
+  "version": "1.5.0-dev.13"
 }
