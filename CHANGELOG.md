@@ -1,3 +1,9 @@
+## [1.5.0-dev.15](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.14...v1.5.0-dev.15) (2026-11-21)
+
+### ✨ New Features
+
+* **VLC:** queue all videos from folder/list on play and fix popup next/prev reflection ([87e20f2](https://github.com/sabbirexist/kodex-patches/commit/87e20f235ee446ef5b86154b22847f9fdb44b2ce))
+
 ## [1.5.0-dev.14](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.13...v1.5.0-dev.14) (2026-11-21)
 
 ### 🐛 Bug Fixes
