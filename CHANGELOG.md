@@ -1,3 +1,10 @@
+## [1.5.0-dev.14](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.13...v1.5.0-dev.14) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **VLC:** rename playPauseAction string variable to avoid conflict with RemoteAction ([2f6e7b1](https://github.com/sabbirexist/kodex-patches/commit/2f6e7b1c1b25bfaabd6105abddc7cd462974bee5))
+* **VLC:** replace emptyList in-place in switchToPopup to fix class verification failure ([8a4e779](https://github.com/sabbirexist/kodex-patches/commit/8a4e779151b5c4d7652e843aa0b697278c9885d4))
+
 ## [1.5.0-dev.13](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.12...v1.5.0-dev.13) (2026-11-21)
 
 ### 🐛 Bug Fixes
