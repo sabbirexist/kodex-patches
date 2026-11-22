@@ -1,3 +1,127 @@
+## [1.5.0-dev.19](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.18...v1.5.0-dev.19) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **VLC:** fix popup invisible icons and disable quick-scale zoom on double-tap ([5ad60c8](https://github.com/sabbirexist/kodex-patches/commit/5ad60c8d4f773e83dbfa9f3d3952ce09efda8611))
+
+## [1.5.0-dev.18](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.17...v1.5.0-dev.18) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **VLC:** use native player icons and fix popup double-tap seek ([f883b40](https://github.com/sabbirexist/kodex-patches/commit/f883b402dc5072554ceadc143c458d1d53adae1f))
+
+## [1.5.0-dev.17](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.16...v1.5.0-dev.17) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **VLC:** fix index out of bounds in double-tap seek match ([34a6e39](https://github.com/sabbirexist/kodex-patches/commit/34a6e39f500c5c57f818869e897b628d9a110991))
+
+## [1.5.0-dev.16](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.15...v1.5.0-dev.16) (2026-11-22)
+
+### ✨ New Features
+
+* **VLC:** add skip buttons and Netflix double-tap seek in fullscreen, PiP, and popup modes ([4e76d56](https://github.com/sabbirexist/kodex-patches/commit/4e76d5662dfb02b9eeae1489081fbf026732a08b))
+
+## [1.5.0-dev.15](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.14...v1.5.0-dev.15) (2026-11-21)
+
+### ✨ New Features
+
+* **VLC:** queue all videos from folder/list on play and fix popup next/prev reflection ([87e20f2](https://github.com/sabbirexist/kodex-patches/commit/87e20f235ee446ef5b86154b22847f9fdb44b2ce))
+
+## [1.5.0-dev.14](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.13...v1.5.0-dev.14) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **VLC:** rename playPauseAction string variable to avoid conflict with RemoteAction ([2f6e7b1](https://github.com/sabbirexist/kodex-patches/commit/2f6e7b1c1b25bfaabd6105abddc7cd462974bee5))
+* **VLC:** replace emptyList in-place in switchToPopup to fix class verification failure ([8a4e779](https://github.com/sabbirexist/kodex-patches/commit/8a4e779151b5c4d7652e843aa0b697278c9885d4))
+
+## [1.5.0-dev.13](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.12...v1.5.0-dev.13) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **VLC:** remove onMediaPlayerEvent hook to avoid switch misalignment crash ([ee8ac60](https://github.com/sabbirexist/kodex-patches/commit/ee8ac609a5140231c0dac3a930682ed247558384))
+
+## [1.5.0-dev.12](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.11...v1.5.0-dev.12) (2026-11-21)
+
+### 🐛 Bug Fixes
+
+* **VLC:** fix register overflow and instruction replacement in PiP patch ([dc49952](https://github.com/sabbirexist/kodex-patches/commit/dc49952f4cb71ffe38542e9822f3bc948e9bd30c))
+
+## [1.5.0-dev.11](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.10...v1.5.0-dev.11) (2026-11-21)
+
+### ✨ New Features
+
+* **VLC:** add PiP and popup media controls patch ([84e3ebb](https://github.com/sabbirexist/kodex-patches/commit/84e3ebb03ba406b54d4ea194e7b5aeb523a98aa6))
+
+## [1.5.0-dev.10](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.9...v1.5.0-dev.10) (2026-10-22)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** re-enable unlock-premium; crash was missing split APKs ([458733b](https://github.com/sabbirexist/kodex-patches/commit/458733b2a4382061c430440a0a3508d55c7a5db8))
+
+### ✨ New Features
+
+* **Heart Rate Monitor:** remove ads, block trackers ([d7caae6](https://github.com/sabbirexist/kodex-patches/commit/d7caae6349f87e84c318255c3319282da47f8721))
+
+## [1.5.0-dev.9](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.8...v1.5.0-dev.9) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** disable unlock-premium by default (crashes editor) ([d3d2cd0](https://github.com/sabbirexist/kodex-patches/commit/d3d2cd0e5a3ee691a4aba02935038bef33988f8c))
+
+## [1.5.0-dev.8](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.7...v1.5.0-dev.8) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **TouchRetouch:** make all patches default-on ([dc60e76](https://github.com/sabbirexist/kodex-patches/commit/dc60e7643dc504647596bc9d0836eb336ba345c8))
+
+### ✨ New Features
+
+* **TouchRetouch:** unlock premium, block trackers, remove rate-us nag ([cfa2760](https://github.com/sabbirexist/kodex-patches/commit/cfa2760a65af514a7620fc5e0396109be82199c0))
+
+## [1.5.0-dev.7](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.6...v1.5.0-dev.7) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** premium screen shows subscribed UI ([34e2f21](https://github.com/sabbirexist/kodex-patches/commit/34e2f21713b9ab86a18e47c3767b7182ba768161))
+
+## [1.5.0-dev.6](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.5...v1.5.0-dev.6) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** unlock premium tab (subscribed UI) ([8540384](https://github.com/sabbirexist/kodex-patches/commit/85403846895fa35ab92e2e9061306d19080ccf1a))
+
+## [1.5.0-dev.5](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.4...v1.5.0-dev.5) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Bangla Keyboard:** rename to Desh Bangla Keyboard ([d7b12e0](https://github.com/sabbirexist/kodex-patches/commit/d7b12e0c88ad221c73cf1d02d6d037ac0d6b5db9))
+
+## [1.5.0-dev.4](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.3...v1.5.0-dev.4) (2026-10-19)
+
+### ✨ New Features
+
+* **Bangla Keyboard:** unlock premium and block tracking ([ba91b99](https://github.com/sabbirexist/kodex-patches/commit/ba91b99afd7d1c5f14a4c26ed5118fa5deab6b97))
+
+## [1.5.0-dev.3](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.2...v1.5.0-dev.3) (2026-10-19)
+
+### 🚀 Updated App Support
+
+* **VLC:** add support for 3.7.2 ([b9ef645](https://github.com/sabbirexist/kodex-patches/commit/b9ef6457cdf736594fe22557d511f280da4560ad))
+
+## [1.5.0-dev.2](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.1...v1.5.0-dev.2) (2026-10-19)
+
+### 🐛 Bug Fixes
+
+* **Ridmik Keyboard:** target the default LXX theme, not just the blue theme ([5ffe98b](https://github.com/sabbirexist/kodex-patches/commit/5ffe98b54defc4a73a42f3776c71a9e7cb5de6c4))
+
+## [1.5.0-dev.1](https://github.com/sabbirexist/kodex-patches/compare/v1.4.0...v1.5.0-dev.1) (2026-10-19)
+
+### ✨ New Features
+
+* **Ridmik Keyboard:** add Gboard-style theme ([10b02d9](https://github.com/sabbirexist/kodex-patches/commit/10b02d97ef0c921437a3f0a343056279b41104a3)), closes [#f1f3f4](https://github.com/sabbirexist/kodex-patches/issues/f1f3f4) [#d8dade](https://github.com/sabbirexist/kodex-patches/issues/d8dade) [#1f1f1f](https://github.com/sabbirexist/kodex-patches/issues/1f1f1f) [#2d2e30](https://github.com/sabbirexist/kodex-patches/issues/2d2e30)
+* **Temp Mail:** unlock premium, block trackers and add AMOLED black theme ([8de0cde](https://github.com/sabbirexist/kodex-patches/commit/8de0cde1768b6f85d7ae10bdef880808f3218244)), closes [#000000](https://github.com/sabbirexist/kodex-patches/issues/000000)
+
 ## [1.4.0](https://github.com/sabbirexist/kodex-patches/compare/v1.3.0...v1.4.0) (2026-10-18)
 
 ### 🐛 Bug Fixes

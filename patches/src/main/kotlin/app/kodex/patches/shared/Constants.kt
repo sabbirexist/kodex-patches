@@ -8,11 +8,9 @@ object Constants {
     /**
      * VLC for Android.
      *
-     * 3.7.1 is the confirmed target: patches are verified against the official 3.7.1 APK.
-     *
-     * The `null` target carries patches forward experimentally; VLC is unobfuscated and its key
-     * seams (VLCOptions, WhatsNewManager, FeatureFlagManager, OnboardingActivityKt) are stable
-     * across releases, so newer versions are expected to work too.
+     * 3.7.2 is the latest confirmed target; 3.7.1 is kept for older installs. The `null` target
+     * carries patches forward experimentally; VLC is unobfuscated and its key seams (VLCOptions,
+     * WhatsNewManager, FeatureFlagManager) are stable across releases.
      */
     val COMPATIBILITY_VLC = Compatibility(
         name = "VLC",
@@ -26,6 +24,9 @@ object Constants {
             ),
             AppTarget(
                 version = "3.7.1"
+            ),
+            AppTarget(
+                version = "3.7.2"
             )
         )
     )
@@ -64,6 +65,24 @@ object Constants {
         targets = listOf(
             AppTarget(
                 version = "4.2026.09.16.1233"
+            )
+        )
+    )
+
+    /**
+     * Desh Bangla Keyboard — Bengali keyboard IME.
+     *
+     * 17.6.8 is the confirmed target. Readable package names, no anti-tamper, so the premium
+     * (billing/e) and analytics seams are matched by exact class + method name.
+     */
+    val COMPATIBILITY_BANGLA = Compatibility(
+        name = "Desh Bangla Keyboard",
+        packageName = "com.bangla.keyboard.for.android",
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x00897B, // Bangla Keyboard teal-green
+        targets = listOf(
+            AppTarget(
+                version = "17.6.8"
             )
         )
     )
