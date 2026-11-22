@@ -1,3 +1,9 @@
+## [1.5.0-dev.17](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.16...v1.5.0-dev.17) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **VLC:** fix index out of bounds in double-tap seek match ([34a6e39](https://github.com/sabbirexist/kodex-patches/commit/34a6e39f500c5c57f818869e897b628d9a110991))
+
 ## [1.5.0-dev.16](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.15...v1.5.0-dev.16) (2026-11-22)
 
 ### ✨ New Features
