@@ -1,3 +1,9 @@
+## [1.5.0-dev.18](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.17...v1.5.0-dev.18) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **VLC:** use native player icons and fix popup double-tap seek ([f883b40](https://github.com/sabbirexist/kodex-patches/commit/f883b402dc5072554ceadc143c458d1d53adae1f))
+
 ## [1.5.0-dev.17](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.16...v1.5.0-dev.17) (2026-11-22)
 
 ### 🐛 Bug Fixes
