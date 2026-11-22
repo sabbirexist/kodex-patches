@@ -6,9 +6,12 @@ import android.app.RemoteAction;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,6 +27,7 @@ import java.util.List;
 
 public class VlcControls {
     private static final String TAG = "Kodex/VlcControls";
+    private static long lastDoubleTapTime = 0L;
 
     // -------------------------------------------------------------
     // 1. Android Native Picture-in-Picture (PiP) Actions
@@ -45,14 +49,37 @@ public class VlcControls {
             // Customizable jump delay from Settings (defaults to 10s if not set)
             long jumpDelay = getVideoJumpDelay();
 
-            int rewindIconId = getDrawableId(context, "ic_widget_rewind_10",
-                    getDrawableId(context, "ic_player_rewind_10", android.R.drawable.ic_media_previous));
-            int forwardIconId = getDrawableId(context, "ic_widget_forward_10",
-                    getDrawableId(context, "ic_player_forward_10", android.R.drawable.ic_media_next));
-            int playPauseIconId = getDrawableId(context, "ic_popup_pause",
-                    getDrawableId(context, "ic_notif_pause", android.R.drawable.ic_media_pause));
-            int nextIconId = getDrawableId(context, "ic_notif_next",
-                    getDrawableId(context, "ic_player_next", android.R.drawable.ic_media_next));
+            // Native VLC player icons from normal video playing mode
+            int rewindIconId = getDrawableId(context, "ic_player_rewind_10",
+                    getDrawableId(context, "ic_widget_rewind_10", android.R.drawable.ic_media_previous));
+            int forwardIconId = getDrawableId(context, "ic_player_forward_10",
+                    getDrawableId(context, "ic_widget_forward_10", android.R.drawable.ic_media_next));
+            int nextIconId = getDrawableId(context, "ic_player_next",
+                    getDrawableId(context, "ic_notif_next", android.R.drawable.ic_media_next));
+
+            // Check if playing to pick play vs pause player icon
+            boolean isPlaying = true;
+            try {
+                Field serviceField = context.getClass().getDeclaredField("service");
+                serviceField.setAccessible(true);
+                Object serviceObj = serviceField.get(context);
+                if (serviceObj != null) {
+                    Method isPlayingMethod = serviceObj.getClass().getMethod("isPlaying");
+                    isPlaying = (Boolean) isPlayingMethod.invoke(serviceObj);
+                }
+            } catch (Throwable ignored) {}
+
+            int playPauseIconId;
+            String playPauseTitle;
+            if (isPlaying) {
+                playPauseIconId = getDrawableId(context, "ic_pause_player",
+                        getDrawableId(context, "ic_popup_pause", android.R.drawable.ic_media_pause));
+                playPauseTitle = "Pause";
+            } else {
+                playPauseIconId = getDrawableId(context, "ic_play_player",
+                        getDrawableId(context, "ic_popup_play", android.R.drawable.ic_media_play));
+                playPauseTitle = "Play";
+            }
 
             String seekDelayKey = pkg + ".EXTRA_CUSTOM_ACTION_ID";
 
@@ -75,8 +102,8 @@ public class VlcControls {
                     PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
             actions.add(new RemoteAction(
                     Icon.createWithResource(context, playPauseIconId),
-                    "Play/Pause",
-                    "Play/Pause",
+                    playPauseTitle,
+                    playPauseTitle,
                     piPlayPause
             ));
 
@@ -117,6 +144,12 @@ public class VlcControls {
 
     public static void onPopupDoubleTap(Object popupManagerObj, MotionEvent event) {
         if (popupManagerObj == null || event == null) return;
+        long now = System.currentTimeMillis();
+        if (now - lastDoubleTapTime < 250L) {
+            return;
+        }
+        lastDoubleTapTime = now;
+
         try {
             Field serviceField = popupManagerObj.getClass().getDeclaredField("service");
             serviceField.setAccessible(true);
@@ -126,12 +159,24 @@ public class VlcControls {
             rootViewField.setAccessible(true);
             View rootView = (View) rootViewField.get(popupManagerObj);
 
-            int width = (rootView != null && rootView.getWidth() > 0) ? rootView.getWidth() : 1000;
-            float x = event.getX();
+            float touchX = event.getX();
+            int width = 0;
+            if (rootView != null) {
+                width = rootView.getWidth();
+                try {
+                    int[] loc = new int[2];
+                    rootView.getLocationOnScreen(loc);
+                    float localX = event.getRawX() - loc[0];
+                    if (localX > 0 && localX < width) {
+                        touchX = localX;
+                    }
+                } catch (Throwable ignored) {}
+            }
+            if (width <= 0) width = 1000;
 
             long jumpDelay = getVideoDoubleTapJumpDelay();
             long deltaMs = jumpDelay * 1000L;
-            int direction = (x < width / 2.0f) ? -1 : 1;
+            int direction = (touchX < width / 2.0f) ? -1 : 1;
 
             seekService(serviceObj, deltaMs * direction);
         } catch (Throwable t) {
@@ -143,7 +188,7 @@ public class VlcControls {
     // 3. Floating Pop-up Player: Initialization & Dedicated Buttons
     // -------------------------------------------------------------
 
-    public static void initPopup(View rootView, Object vlcVout, Object popupManagerObj) {
+    public static void initPopup(View rootView, Object vlcVout, final Object popupManagerObj) {
         if (rootView != null && vlcVout != null) {
             try {
                 for (Method m : rootView.getClass().getMethods()) {
@@ -156,6 +201,41 @@ public class VlcControls {
                 Log.e(TAG, "Failed to call setVLCVOut", t);
             }
         }
+
+        // Attach direct gesture detector to surface to ensure double-tap is always caught
+        if (rootView != null && popupManagerObj != null) {
+            try {
+                Context ctx = rootView.getContext();
+                final GestureDetector surfaceGestureDetector = new GestureDetector(ctx,
+                        new GestureDetector.SimpleOnGestureListener() {
+                            @Override
+                            public boolean onDown(MotionEvent e) {
+                                return true;
+                            }
+
+                            @Override
+                            public boolean onDoubleTap(MotionEvent e) {
+                                onPopupDoubleTap(popupManagerObj, e);
+                                return true;
+                            }
+                        });
+
+                int surfaceId = getIdentifier(ctx, "player_surface", "id");
+                final View surface = surfaceId != 0 ? rootView.findViewById(surfaceId) : null;
+                if (surface != null) {
+                    surface.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            surfaceGestureDetector.onTouchEvent(event);
+                            return false; // let PopupLayout handle drag/scaling
+                        }
+                    });
+                }
+            } catch (Throwable t) {
+                Log.e(TAG, "Failed to attach surface double-tap detector", t);
+            }
+        }
+
         setupPopupControls(rootView, popupManagerObj);
     }
 
@@ -186,16 +266,32 @@ public class VlcControls {
                     controlsRow.setGravity(Gravity.CENTER);
                     controlsRow.setVisibility(playPauseView.getVisibility());
 
-                    int iconSize = dpToPx(context, 34);
+                    int iconSize = dpToPx(context, 36);
                     int iconPadding = dpToPx(context, 4);
                     int gap = dpToPx(context, 8);
+
+                    // Normal player HUD icons
+                    int prevIconId = getDrawableId(context, "ic_player_previous",
+                            getDrawableId(context, "ic_notif_previous", android.R.drawable.ic_media_previous));
+                    int rewindIconId = getDrawableId(context, "ic_player_rewind_10",
+                            getDrawableId(context, "ic_widget_rewind_10", android.R.drawable.ic_media_previous));
+                    final int playIconId = getDrawableId(context, "ic_play_player",
+                            getDrawableId(context, "ic_popup_play", android.R.drawable.ic_media_play));
+                    final int pauseIconId = getDrawableId(context, "ic_pause_player",
+                            getDrawableId(context, "ic_popup_pause", android.R.drawable.ic_media_pause));
+                    int forwardIconId = getDrawableId(context, "ic_player_forward_10",
+                            getDrawableId(context, "ic_widget_forward_10", android.R.drawable.ic_media_next));
+                    int nextIconId = getDrawableId(context, "ic_player_next",
+                            getDrawableId(context, "ic_notif_next", android.R.drawable.ic_media_next));
 
                     // Prev Button
                     ImageView prevBtn = new ImageView(context);
                     prevBtn.setLayoutParams(new LinearLayout.LayoutParams(iconSize, iconSize));
                     prevBtn.setPadding(iconPadding, iconPadding, iconPadding, iconPadding);
                     prevBtn.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    prevBtn.setImageResource(getDrawableId(context, "ic_notif_previous", android.R.drawable.ic_media_previous));
+                    prevBtn.setImageResource(prevIconId);
+                    prevBtn.setColorFilter(Color.WHITE);
+                    applyBorderlessRipple(context, prevBtn);
                     prevBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -210,8 +306,9 @@ public class VlcControls {
                     rewindBtn.setLayoutParams(rewindLp);
                     rewindBtn.setPadding(iconPadding, iconPadding, iconPadding, iconPadding);
                     rewindBtn.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    rewindBtn.setImageResource(getDrawableId(context, "ic_widget_rewind_10",
-                            getDrawableId(context, "ic_player_rewind_10", android.R.drawable.ic_media_previous)));
+                    rewindBtn.setImageResource(rewindIconId);
+                    rewindBtn.setColorFilter(Color.WHITE);
+                    applyBorderlessRipple(context, rewindBtn);
                     rewindBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -231,8 +328,9 @@ public class VlcControls {
                     forwardBtn.setLayoutParams(new LinearLayout.LayoutParams(iconSize, iconSize));
                     forwardBtn.setPadding(iconPadding, iconPadding, iconPadding, iconPadding);
                     forwardBtn.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    forwardBtn.setImageResource(getDrawableId(context, "ic_widget_forward_10",
-                            getDrawableId(context, "ic_player_forward_10", android.R.drawable.ic_media_next)));
+                    forwardBtn.setImageResource(forwardIconId);
+                    forwardBtn.setColorFilter(Color.WHITE);
+                    applyBorderlessRipple(context, forwardBtn);
                     forwardBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -247,7 +345,9 @@ public class VlcControls {
                     nextBtn.setLayoutParams(nextLp);
                     nextBtn.setPadding(iconPadding, iconPadding, iconPadding, iconPadding);
                     nextBtn.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                    nextBtn.setImageResource(getDrawableId(context, "ic_notif_next", android.R.drawable.ic_media_next));
+                    nextBtn.setImageResource(nextIconId);
+                    nextBtn.setColorFilter(Color.WHITE);
+                    applyBorderlessRipple(context, nextBtn);
                     nextBtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -260,6 +360,11 @@ public class VlcControls {
                     controlsRow.addView(centerSpacer);
                     controlsRow.addView(forwardBtn);
                     controlsRow.addView(nextBtn);
+
+                    // Ensure playPauseView is styled and tinted to match player HUD
+                    if (playPauseView instanceof ImageView) {
+                        ((ImageView) playPauseView).setColorFilter(Color.WHITE);
+                    }
 
                     // Attach to constraint layout
                     try {
@@ -281,13 +386,22 @@ public class VlcControls {
                         container.addView(controlsRow);
                     }
 
-                    // Keep controls visibility synchronized with playPauseView
+                    // Keep controls visibility and play/pause icon synchronized with service state
                     playPauseView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
                         @Override
                         public boolean onPreDraw() {
                             int vis = playPauseView.getVisibility();
                             if (controlsRow.getVisibility() != vis) {
                                 controlsRow.setVisibility(vis);
+                            }
+
+                            if (playPauseView instanceof ImageView) {
+                                boolean isPlaying = false;
+                                try {
+                                    Method isPlayingMethod = serviceObj.getClass().getMethod("isPlaying");
+                                    isPlaying = (Boolean) isPlayingMethod.invoke(serviceObj);
+                                } catch (Throwable ignored) {}
+                                ((ImageView) playPauseView).setImageResource(isPlaying ? pauseIconId : playIconId);
                             }
                             return true;
                         }
@@ -304,40 +418,79 @@ public class VlcControls {
     // 4. Helper Utilities
     // -------------------------------------------------------------
 
-    private static void seekService(Object serviceObj, long deltaMs) {
+    public static void seekService(Object serviceObj, long deltaMs) {
         if (serviceObj == null) return;
         try {
-            Method isSeekableMethod = serviceObj.getClass().getMethod("isSeekable");
-            if (!((Boolean) isSeekableMethod.invoke(serviceObj))) return;
+            long currentTime = 0L;
+            try {
+                Method getTimeMethod = serviceObj.getClass().getMethod("getTime");
+                currentTime = (Long) getTimeMethod.invoke(serviceObj);
+            } catch (Throwable ignored) {}
 
-            Method getTimeMethod = serviceObj.getClass().getMethod("getTime");
-            long currentTime = (Long) getTimeMethod.invoke(serviceObj);
+            long targetTime = Math.max(0L, currentTime + deltaMs);
 
-            Method getLengthMethod = serviceObj.getClass().getMethod("getLength");
-            long length = (Long) getLengthMethod.invoke(serviceObj);
+            // 1. Direct seek call on service
+            boolean seekInvoked = false;
+            try {
+                Method seekMethod = serviceObj.getClass().getMethod("seek", long.class);
+                seekMethod.invoke(serviceObj, targetTime);
+                seekInvoked = true;
+            } catch (Throwable ignored) {}
 
-            long targetTime = Math.max(0L, Math.min(length, currentTime + deltaMs));
+            if (!seekInvoked) {
+                try {
+                    Method setTimeMethod = serviceObj.getClass().getMethod("setTime", long.class, boolean.class);
+                    setTimeMethod.invoke(serviceObj, targetTime, false);
+                    seekInvoked = true;
+                } catch (Throwable ignored) {}
+            }
 
-            Method seekMethod = serviceObj.getClass().getMethod("seek", long.class);
-            seekMethod.invoke(serviceObj, targetTime);
+            // 2. Direct seek on PlayerController
+            try {
+                Field pmField = serviceObj.getClass().getDeclaredField("playlistManager");
+                pmField.setAccessible(true);
+                Object pm = pmField.get(serviceObj);
+                Field playerField = pm.getClass().getDeclaredField("player");
+                playerField.setAccessible(true);
+                Object player = playerField.get(pm);
+
+                Method setTimePlayer = player.getClass().getMethod("setTime", long.class, boolean.class);
+                setTimePlayer.invoke(player, targetTime, false);
+
+                Method updateProgress = player.getClass().getMethod("updateProgress", long.class);
+                updateProgress.invoke(player, targetTime);
+            } catch (Throwable ignored) {}
+
+            // 3. Fallback: Send VLC's standard remote seek intent
+            if (serviceObj instanceof Context) {
+                Context ctx = (Context) serviceObj;
+                String pkg = ctx.getPackageName();
+                if (pkg == null) pkg = "org.videolan.vlc";
+                String actionSuffix = deltaMs >= 0 ? "SeekForward" : "SeekBackward";
+                Intent intent = new Intent(pkg + ".remote." + actionSuffix);
+                intent.setComponent(new ComponentName(ctx, "org.videolan.vlc.PlaybackService"));
+                long delaySec = Math.abs(deltaMs) / 1000L;
+                if (delaySec <= 0) delaySec = 10L;
+                intent.putExtra(pkg + ".EXTRA_CUSTOM_ACTION_ID", delaySec);
+                intent.putExtra("EXTRA_CUSTOM_ACTION_ID", delaySec);
+                ctx.startService(intent);
+            }
         } catch (Throwable t) {
-            Log.e(TAG, "Error seeking service", t);
+            Log.e(TAG, "Error in seekService", t);
         }
     }
 
     private static void sendPlaybackAction(Context context, Object serviceObj, String actionSuffix) {
-        boolean sent = false;
         try {
-            String pkg = context.getPackageName();
+            String pkg = context != null ? context.getPackageName() : "org.videolan.vlc";
             if (pkg == null) pkg = "org.videolan.vlc";
             String action = pkg + ".remote." + actionSuffix;
             Intent intent = new Intent(action);
             intent.setComponent(new ComponentName(context, "org.videolan.vlc.PlaybackService"));
             context.startService(intent);
-            sent = true;
         } catch (Throwable ignored) {}
 
-        if (!sent && serviceObj != null) {
+        if (serviceObj != null) {
             try {
                 if ("Forward".equals(actionSuffix)) {
                     try {
@@ -358,6 +511,14 @@ public class VlcControls {
                 }
             } catch (Throwable ignored) {}
         }
+    }
+
+    private static void applyBorderlessRipple(Context context, View view) {
+        try {
+            TypedValue outValue = new TypedValue();
+            context.getTheme().resolveAttribute(android.R.attr.selectableItemBackgroundBorderless, outValue, true);
+            view.setBackgroundResource(outValue.resourceId);
+        } catch (Throwable ignored) {}
     }
 
     private static int getVideoJumpDelay() {
