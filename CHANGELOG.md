@@ -1,3 +1,9 @@
+## [1.5.0-dev.19](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.18...v1.5.0-dev.19) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **VLC:** fix popup invisible icons and disable quick-scale zoom on double-tap ([5ad60c8](https://github.com/sabbirexist/kodex-patches/commit/5ad60c8d4f773e83dbfa9f3d3952ce09efda8611))
+
 ## [1.5.0-dev.18](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.17...v1.5.0-dev.18) (2026-11-22)
 
 ### 🐛 Bug Fixes
