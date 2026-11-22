@@ -6,6 +6,8 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS = "Lapp/kodex/extension/VlcControls;"
 
@@ -55,7 +57,8 @@ val seekControlsPatch = bytecodePatch(
 
     execute {
         // 1. Enable fullscreen seek buttons by default in VideoPlayerOverlayDelegate.initOverlay()
-        val overlayGetBooleanMatch = OverlayInitSeekButtonsFingerprint.instructionMatches[1]
+        val overlayGetBooleanMatch = OverlayInitSeekButtonsFingerprint.instructionMatches.getOrNull(1)
+            ?: OverlayInitSeekButtonsFingerprint.instructionMatches[0]
         val overlayConstIdx = overlayGetBooleanMatch.index - 1
         val overlayConstInsn = OverlayInitSeekButtonsFingerprint.method.getInstruction<OneRegisterInstruction>(overlayConstIdx)
         OverlayInitSeekButtonsFingerprint.method.replaceInstruction(
@@ -64,7 +67,8 @@ val seekControlsPatch = bytecodePatch(
         )
 
         // 2. Enable fullscreen seek buttons default in VideoPlayerActivity.onChangedControlSetting()
-        val activityGetBooleanMatch = ActivityControlSettingSeekButtonsFingerprint.instructionMatches[1]
+        val activityGetBooleanMatch = ActivityControlSettingSeekButtonsFingerprint.instructionMatches.getOrNull(1)
+            ?: ActivityControlSettingSeekButtonsFingerprint.instructionMatches[0]
         val activityConstIdx = activityGetBooleanMatch.index - 1
         val activityConstInsn = ActivityControlSettingSeekButtonsFingerprint.method.getInstruction<OneRegisterInstruction>(activityConstIdx)
         ActivityControlSettingSeekButtonsFingerprint.method.replaceInstruction(
@@ -74,7 +78,24 @@ val seekControlsPatch = bytecodePatch(
 
         // 3. Expand fullscreen double-tap to Netflix-style left/right halves in VideoTouchDelegate.onTouchEvent()
         val rewindMatch = TouchDelegateDoubleTapFingerprint.instructionMatches[0]
-        val forwardMatch = TouchDelegateDoubleTapFingerprint.instructionMatches[1]
+        val forwardIndex = if (TouchDelegateDoubleTapFingerprint.instructionMatches.size > 1) {
+            TouchDelegateDoubleTapFingerprint.instructionMatches[1].index
+        } else {
+            var found = -1
+            val impl = TouchDelegateDoubleTapFingerprint.method.implementation!!
+            for (i in (rewindMatch.index + 1) until impl.instructions.size) {
+                val ins = TouchDelegateDoubleTapFingerprint.method.getInstruction(i)
+                if (ins is ReferenceInstruction) {
+                    val ref = ins.reference
+                    if (ref is MethodReference && ref.name.startsWith("seekDelta")) {
+                        found = i
+                        break
+                    }
+                }
+            }
+            require(found != -1) { "Could not find forward seekDelta call" }
+            found
+        }
 
         // Replace 4.0f with 2.0f for left half rewind (event.x < range / 2.0f)
         var rewindConstIdx = -1
@@ -93,7 +114,7 @@ val seekControlsPatch = bytecodePatch(
 
         // Replace 0.75 with 0.50 for right half forward (event.x > range * 0.50)
         var forwardConstIdx = -1
-        for (i in forwardMatch.index - 1 downTo maxOf(0, forwardMatch.index - 15)) {
+        for (i in forwardIndex - 1 downTo maxOf(0, forwardIndex - 15)) {
             if (TouchDelegateDoubleTapFingerprint.method.getInstruction(i).opcode == Opcode.CONST_WIDE_HIGH16) {
                 forwardConstIdx = i
                 break

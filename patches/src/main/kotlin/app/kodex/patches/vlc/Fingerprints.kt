@@ -112,6 +112,10 @@ object TouchDelegateDoubleTapFingerprint : Fingerprint(
             definingClass = "Lorg/videolan/vlc/gui/video/VideoTouchDelegate;",
             name = "seekDelta\$vlc_android_release",
         ),
+        methodCall(
+            definingClass = "Lorg/videolan/vlc/gui/video/VideoTouchDelegate;",
+            name = "seekDelta\$vlc_android_release",
+        ),
     ),
 )
 
