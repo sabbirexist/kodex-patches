@@ -65,7 +65,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |
 | [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |
 | [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |
-| [PiP & Popup media controls](#pip-popup-media-controls) | Adds previous video, pause/resume, and next video buttons to Picture-in-Picture (PiP) and floating popup mode. |
+| [Seek & gesture controls](#seek-gesture-controls) | Enables forward/backward skip buttons and Netflix-style double-tap seeking in fullscreen, PiP, and floating popup modes. |
 | [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |
