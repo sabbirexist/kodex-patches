@@ -29,7 +29,7 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 ## ⚙️ Patch Details
 
 <!-- PATCHES_START -->
-> **[v1.5.0-dev.15](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.15)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;18 patches total
+> **[v1.5.0-dev.16](https://github.com/sabbirexist/kodex-patches/releases/tag/v1.5.0-dev.16)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;18 patches total
 <details>
 <summary>📦 Eyecon&nbsp;&nbsp;•&nbsp;&nbsp;5 patches</summary>
 <br>
@@ -65,8 +65,8 @@ java -jar morphe-desktop-*-all.jar patch -p https://github.com/sabbirexist/kodex
 | [Force AAudio output](#force-aaudio-output) | Locks the audio output to AAudio (low latency), overriding the device preference. |
 | [Force ReplayGain](#force-replaygain) | Normalizes loudness across tracks using track mode with peak protection. |
 | [Force audio passthrough](#force-audio-passthrough) | Enables bitstream audio passthrough (digital output) to an external DAC or receiver. |
-| [Seek & gesture controls](#seek-gesture-controls) | Enables forward/backward skip buttons and Netflix-style double-tap seeking in fullscreen, PiP, and floating popup modes. |
 | [Raise network cache](#raise-network-cache) | Buffers 3 seconds of stream ahead to reduce stalls on flaky networks. |
+| [Seek & gesture controls](#seek-gesture-controls) | Enables forward/backward skip buttons and Netflix-style double-tap seeking in fullscreen, PiP, and floating popup modes. |
 | [Skip "What's New" dialog](#skip-what-s-new-dialog) | Suppresses the What's New changelog dialog shown after app updates. |
 | [Unlock experimental features](#unlock-experimental-features) | Enables every experimental feature flag regardless of its stored value. |
 | [Verbose libVLC logging](#verbose-libvlc-logging) | Sets libVLC to maximum verbosity (-vvv) for troubleshooting playback. |

@@ -1,3 +1,9 @@
+## [1.5.0-dev.16](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.15...v1.5.0-dev.16) (2026-11-22)
+
+### ✨ New Features
+
+* **VLC:** add skip buttons and Netflix double-tap seek in fullscreen, PiP, and popup modes ([4e76d56](https://github.com/sabbirexist/kodex-patches/commit/4e76d5662dfb02b9eeae1489081fbf026732a08b))
+
 ## [1.5.0-dev.15](https://github.com/sabbirexist/kodex-patches/compare/v1.5.0-dev.14...v1.5.0-dev.15) (2026-11-21)
 
 ### ✨ New Features
